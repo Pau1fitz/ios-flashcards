@@ -19,14 +19,6 @@ struct FlashcardView: View {
                             .stacked(at: index, in: translations.count)
                     }
                 }
-                HStack {
-                    Spacer()
-                    Button("Restart") {
-    //                    translateData()
-                    }
-                    .buttonStyle(.borderedProminent)
-                }
-                .padding(.horizontal)
             }
 
         }

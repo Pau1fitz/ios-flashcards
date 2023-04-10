@@ -20,9 +20,14 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
+            Text("Home")
+                .tabItem {
+                    Label("Home", systemImage: "house")
+                }
+            
             TranslationListView(translations: $store.translations, saveAction: saveTranslations)
                 .tabItem {
-                    Label("Translate", systemImage: "book.circle")
+                    Label("Translate", systemImage: "list.dash")
                 }
             
             FlashcardView(translations: $store.translations)

@@ -73,24 +73,24 @@ struct TranslationListView: View {
                        VStack(alignment: .leading) {
                            Text(item.english)
                                .fontWeight(.heavy)
+                               .font(.system(size: 14))
                                .offset(x: 12.0)
                                
                            Text(item.portuguese)
                                .opacity(0.8)
+                               .font(.system(size: 12))
                                .offset(x: 12.0)
-                               
                        }
                        .padding(.vertical, 6.0)
                    }
                    .onDelete { indexSet in
-                       print(indexSet)
-
+                       translations.remove(atOffsets: indexSet)
+                       saveAction()
                     }
                    .listRowInsets(EdgeInsets())
                }
                .listStyle(PlainListStyle())
-              
-        
+            
             Spacer()
         }
     }
