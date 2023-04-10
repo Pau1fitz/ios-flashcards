@@ -20,7 +20,7 @@ struct TranslationListView: View {
     
     @Binding var translations: [TranslatedItem]
     @Binding var currentIndex: Int
-    let saveAction: ()->Void
+    let saveAction: () -> Void
     
     func translateData() {
         if self.translatedTextRequest != "" {
@@ -57,14 +57,26 @@ struct TranslationListView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Divider()
-            HStack (alignment: .top) {
-                TextEditor(text: $translatedTextRequest)
-                    .font(.system(size: 14))
-                    .frame(height: 100.0)
-                    .frame(maxHeight: 100.0)
-                    
+            
+            ZStack(alignment: .leading) {
+                HStack (alignment: .top) {
+                    TextEditor(text: $translatedTextRequest)
+                        .font(.system(size: 14))
+                        .frame(height: 100.0)
+                        .frame(maxHeight: 100.0)
+                }
+                .padding(8.0)
+                
+                if self.translatedTextRequest == "" {
+                    HStack (alignment: .top) {
+                        Text("Translate...")
+                            .font(.system(size: 14))
+                    }
+                    .padding(8.0)
+                    .offset(x: 6.0, y: -32.0)
+                }
             }
-            .padding(8.0)
+            
             
             HStack {
                 Spacer()
