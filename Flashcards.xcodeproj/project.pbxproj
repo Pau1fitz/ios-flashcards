@@ -7,18 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B84FC750EA3518A4D30E6FA5 /* libPods-Flashcards.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A58792C0C81FEC21E7D9F34 /* libPods-Flashcards.a */; };
 		E2881C4229E09F9300AD69A4 /* FlashcardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C4129E09F9300AD69A4 /* FlashcardsApp.swift */; };
 		E2881C4429E09F9300AD69A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C4329E09F9300AD69A4 /* ContentView.swift */; };
 		E2881C4629E09F9700AD69A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2881C4529E09F9700AD69A4 /* Assets.xcassets */; };
 		E2881C4929E09F9700AD69A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2881C4829E09F9700AD69A4 /* Preview Assets.xcassets */; };
+		E2881C5029E0A23200AD69A4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C4F29E0A23200AD69A4 /* Card.swift */; };
+		E2881C5229E0A25200AD69A4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C5129E0A25200AD69A4 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B50B7305E268769D36C571F /* Pods-Flashcards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flashcards.debug.xcconfig"; path = "Target Support Files/Pods-Flashcards/Pods-Flashcards.debug.xcconfig"; sourceTree = "<group>"; };
+		4A58792C0C81FEC21E7D9F34 /* libPods-Flashcards.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Flashcards.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7908F68D2225E78230113298 /* Pods-Flashcards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flashcards.release.xcconfig"; path = "Target Support Files/Pods-Flashcards/Pods-Flashcards.release.xcconfig"; sourceTree = "<group>"; };
 		E2881C3E29E09F9300AD69A4 /* Flashcards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2881C4129E09F9300AD69A4 /* FlashcardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsApp.swift; sourceTree = "<group>"; };
 		E2881C4329E09F9300AD69A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E2881C4529E09F9700AD69A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2881C4829E09F9700AD69A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E2881C4F29E0A23200AD69A4 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		E2881C5129E0A25200AD69A4 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +34,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B84FC750EA3518A4D30E6FA5 /* libPods-Flashcards.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4111A7837E6FB17A276B6AF2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A58792C0C81FEC21E7D9F34 /* libPods-Flashcards.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		94160CE51E2910DB6A695A6E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B50B7305E268769D36C571F /* Pods-Flashcards.debug.xcconfig */,
+				7908F68D2225E78230113298 /* Pods-Flashcards.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E2881C3529E09F9300AD69A4 = {
 			isa = PBXGroup;
 			children = (
 				E2881C4029E09F9300AD69A4 /* Flashcards */,
 				E2881C3F29E09F9300AD69A4 /* Products */,
+				94160CE51E2910DB6A695A6E /* Pods */,
+				4111A7837E6FB17A276B6AF2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,7 +81,9 @@
 			isa = PBXGroup;
 			children = (
 				E2881C4129E09F9300AD69A4 /* FlashcardsApp.swift */,
+				E2881C4F29E0A23200AD69A4 /* Card.swift */,
 				E2881C4329E09F9300AD69A4 /* ContentView.swift */,
+				E2881C5129E0A25200AD69A4 /* CardView.swift */,
 				E2881C4529E09F9700AD69A4 /* Assets.xcassets */,
 				E2881C4729E09F9700AD69A4 /* Preview Content */,
 			);
@@ -74,6 +105,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2881C4C29E09F9700AD69A4 /* Build configuration list for PBXNativeTarget "Flashcards" */;
 			buildPhases = (
+				B54E29AF4D0162956AABFA01 /* [CP] Check Pods Manifest.lock */,
 				E2881C3A29E09F9300AD69A4 /* Sources */,
 				E2881C3B29E09F9300AD69A4 /* Frameworks */,
 				E2881C3C29E09F9300AD69A4 /* Resources */,
@@ -132,12 +164,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B54E29AF4D0162956AABFA01 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Flashcards-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E2881C3A29E09F9300AD69A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E2881C4429E09F9300AD69A4 /* ContentView.swift in Sources */,
+				E2881C5029E0A23200AD69A4 /* Card.swift in Sources */,
+				E2881C5229E0A25200AD69A4 /* CardView.swift in Sources */,
 				E2881C4229E09F9300AD69A4 /* FlashcardsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +320,7 @@
 		};
 		E2881C4D29E09F9700AD69A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B50B7305E268769D36C571F /* Pods-Flashcards.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -290,6 +350,7 @@
 		};
 		E2881C4E29E09F9700AD69A4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7908F68D2225E78230113298 /* Pods-Flashcards.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
