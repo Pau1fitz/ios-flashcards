@@ -9,18 +9,39 @@ import SwiftUI
 
 struct FlashcardView: View {
     @Binding var translations: [TranslatedItem]
+    @State var currentIndex = 0
     
     var body: some View {
-        ZStack {
-            VStack {
-                ZStack {
-                    ForEach(0..<translations.count, id: \.self) { index in
-                        CardView(card: translations[index])
-                            .stacked(at: index, in: translations.count)
+        VStack (alignment: .leading){
+            Spacer()
+            CardView(card: translations[currentIndex])
+            
+            HStack {
+                Spacer()
+                Button("Previous") {
+                    if currentIndex != 0 {
+                        currentIndex = currentIndex - 1
                     }
                 }
+                .buttonStyle(.borderedProminent)
+                
+                Spacer()
+                
+                Button("Next") {
+                    if currentIndex < translations.count - 1 {
+                        currentIndex = currentIndex + 1
+                    }
+                    
+                }
+                .buttonStyle(.borderedProminent)
+                
+                Spacer()
             }
-
+            .padding()
+            
+            Spacer()
+                
         }
+        .padding()
     }
 }

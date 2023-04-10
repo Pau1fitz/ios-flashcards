@@ -14,50 +14,30 @@ struct CardView: View {
     @State private var offset = CGSize.zero
     
     var body: some View {
-        GeometryReader {  geometry in
-           
-            ZStack {
-                RoundedRectangle(cornerRadius: 25, style: .continuous)
-                    .fill(.white)
-                    .shadow(radius: 4)
+        ZStack {
+            RoundedRectangle(cornerRadius: 25, style: .continuous)
+                .fill(.white)
+                .shadow(radius: 4)
 
-                VStack {
-                    Text(card.english)
-                        .font(.title2)
-                        .foregroundColor(.black)
+            VStack {
+                Text(card.english)
+                    .fontWeight(.heavy)
+                    .font(.system(size: 14))
 
-                    if isShowingAnswer {
-                        Text(card.portuguese)
-                            .font(.title2)
-                            .foregroundColor(.gray)
-                    }
+                if isShowingAnswer {
+                    Text(card.portuguese)
+                        .opacity(0.8)
+                        .font(.system(size: 12))
                 }
-                .padding(20)
-                .multilineTextAlignment(.center)
             }
-            .padding()
-            .frame(width: geometry.size.width, height: 250)
-            .rotationEffect(.degrees(Double(offset.width / 5)))
-            .offset(x: offset.width * 5, y: 0)
-            .opacity(2 - Double(abs(offset.width / 50)))
-            .gesture(
-                DragGesture()
-                    .onChanged { gesture in
-                        offset = gesture.translation
-                    }
-                    .onEnded { _ in
-                        if abs(offset.width) > 100 {
-                            // remove the card
-                        } else {
-                            offset = .zero
-                        }
-                    }
-            )
-            .onTapGesture {
-                isShowingAnswer.toggle()
-            }
+            .padding(20)
+            .multilineTextAlignment(.center)
         }
-       
+        .padding()
+        .frame(width: UIScreen.main.bounds.size.width, height: 250)
+        .onTapGesture {
+            isShowingAnswer.toggle()
+        }
     }
 }
 
