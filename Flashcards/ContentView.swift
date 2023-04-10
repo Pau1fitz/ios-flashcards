@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var store = TranslationsStore()
-    
+ 
     func saveTranslations () {
         TranslationsStore.save(translatedItems: store.translations) { result in
             if case .failure(let error) = result {
@@ -20,17 +20,17 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            Text("Home")
+            HomeView()
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
             
-            TranslationListView(translations: $store.translations, saveAction: saveTranslations)
+            TranslationListView(translations: $store.translations, currentIndex: $store.currentIndex, saveAction: saveTranslations)
                 .tabItem {
                     Label("Translate", systemImage: "list.dash")
                 }
             
-            FlashcardView(translations: $store.translations)
+            FlashcardView(translations: $store.translations, currentIndex: $store.currentIndex)
                 .tabItem {
                     Label("Flashcards", systemImage: "greetingcard.fill")
                }

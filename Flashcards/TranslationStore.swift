@@ -10,6 +10,7 @@ import SwiftUI
 
 class TranslationsStore: ObservableObject {
     @Published var translations: [TranslatedItem] = []
+    @Published var currentIndex: Int = 0
     
     private static func fileURL() throws -> URL {
         try FileManager.default.url(for: .documentDirectory,

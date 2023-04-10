@@ -9,39 +9,45 @@ import SwiftUI
 
 struct FlashcardView: View {
     @Binding var translations: [TranslatedItem]
-    @State var currentIndex = 0
+    @Binding var currentIndex: Int
     
     var body: some View {
-        VStack (alignment: .leading){
-            Spacer()
-            CardView(card: translations[currentIndex])
-            
-            HStack {
-                Spacer()
-                Button("Previous") {
-                    if currentIndex != 0 {
-                        currentIndex = currentIndex - 1
-                    }
-                }
-                .buttonStyle(.borderedProminent)
-                
+        if translations.count > 0 {
+            VStack (alignment: .leading) {
                 Spacer()
                 
-                Button("Next") {
-                    if currentIndex < translations.count - 1 {
-                        currentIndex = currentIndex + 1
+                CardView(card: translations[currentIndex])
+                
+                HStack {
+                    Spacer()
+                    Button("Previous") {
+                        if currentIndex != 0 {
+                            currentIndex = currentIndex - 1
+                        }
                     }
+                    .buttonStyle(.borderedProminent)
                     
+                    Spacer()
+                    
+                    Button("Next") {
+                        if currentIndex < translations.count - 1 {
+                            currentIndex = currentIndex + 1
+                        }
+                        
+                    }
+                    .buttonStyle(.borderedProminent)
+                    
+                    Spacer()
                 }
-                .buttonStyle(.borderedProminent)
+                .padding()
                 
                 Spacer()
+                    
             }
             .padding()
-            
-            Spacer()
-                
+        } else {
+            Text("No translations available")
         }
-        .padding()
+ 
     }
 }

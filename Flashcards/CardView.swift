@@ -20,12 +20,12 @@ struct CardView: View {
                 .shadow(radius: 4)
 
             VStack {
-                Text(card.english)
+                Text(card.portuguese)
                     .fontWeight(.heavy)
                     .font(.system(size: 14))
 
                 if isShowingAnswer {
-                    Text(card.portuguese)
+                    Text(card.english)
                         .opacity(0.8)
                         .font(.system(size: 12))
                 }

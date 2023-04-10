@@ -19,46 +19,53 @@ struct TranslationListView: View {
     @State private var translation: String? = nil
     
     @Binding var translations: [TranslatedItem]
+    @Binding var currentIndex: Int
     let saveAction: ()->Void
     
     func translateData() {
-        let translationRequest = Post(q: translatedTextRequest, source: "en", target: "pt")
-        AF.request(
-            "https://translate.terraprint.co/translate",
-            method: .post,
-            parameters: translationRequest,
-            encoder: JSONParameterEncoder.default).response { response in
-                switch response.result {
-                    case let .success(value):
-                        do {
-                            let json = try JSONSerialization.jsonObject(with: value!, options: [])
-                            if let dict = json as? [String: Any],
-                            let translatedText = dict["translatedText"] as? String {
-                                self.translation = translatedText
-                                translations.append(TranslatedItem(id: UUID(), english: translatedTextRequest, portuguese: translatedText))
-                                saveAction()
-                                self.translatedTextRequest = ""
-                            } else {
-                                print("Invalid response format")
-                            }
-                        } catch {
-                            print("Error decoding response: \(error)")
-                    }
+        if self.translatedTextRequest != "" {
+            let translationRequest = Post(q: translatedTextRequest, source: "pt", target: "en")
+            AF.request(
+                "https://translate.terraprint.co/translate",
+                method: .post,
+                parameters: translationRequest,
+                encoder: JSONParameterEncoder.default).response { response in
+                    switch response.result {
+                        case let .success(value):
+                            do {
+                                let json = try JSONSerialization.jsonObject(with: value!, options: [])
+                                if let dict = json as? [String: Any],
+                                let translatedText = dict["translatedText"] as? String {
+                                    self.translation = translatedText
+                                    translations.append(TranslatedItem(id: UUID(), english: translatedText, portuguese: translatedTextRequest))
+                                    saveAction()
+                                    self.translatedTextRequest = ""
+                                } else {
+                                    print("Invalid response format")
+                                }
+                            } catch {
+                                print("Error decoding response: \(error)")
+                        }
 
-                    case let .failure(error):
-                        print(error)
+                        case let .failure(error):
+                            print(error)
+                    }
                 }
-            }
+        }
     }
 
     var body: some View {
         VStack(alignment: .leading) {
             Divider()
             HStack (alignment: .top) {
-                TextField("Translate...", text: $translatedTextRequest)
-                    .frame(height: 60.0, alignment: .top)
-                    .padding()
+                TextEditor(text: $translatedTextRequest)
+                    .font(.system(size: 14))
+                    .frame(height: 100.0)
+                    .frame(maxHeight: 100.0)
+                    
             }
+            .padding(8.0)
+            
             HStack {
                 Spacer()
                 Button("Translate") {
@@ -68,15 +75,17 @@ struct TranslationListView: View {
             }
             .padding(.horizontal)
             
+            Divider()
+            
             List {
                    ForEach(translations, id: \.id) { item in
                        VStack(alignment: .leading) {
-                           Text(item.english)
+                           Text(item.portuguese)
                                .fontWeight(.heavy)
                                .font(.system(size: 14))
                                .offset(x: 12.0)
                                
-                           Text(item.portuguese)
+                           Text(item.english)
                                .opacity(0.8)
                                .font(.system(size: 12))
                                .offset(x: 12.0)
@@ -85,6 +94,7 @@ struct TranslationListView: View {
                    }
                    .onDelete { indexSet in
                        translations.remove(atOffsets: indexSet)
+                       currentIndex = 0
                        saveAction()
                     }
                    .listRowInsets(EdgeInsets())
