@@ -68,15 +68,29 @@ struct TranslationListView: View {
             }
             .padding(.horizontal)
             
-    
-            List($translations, id: \.id, editActions: .delete) { $item in
-                VStack(alignment: .leading) {
-                    Text(item.english)
-                        .fontWeight(.heavy)
-                    Text(item.portuguese)
-                        .opacity(0.8)
-                }
-            }
+            List {
+                   ForEach(translations, id: \.id) { item in
+                       VStack(alignment: .leading) {
+                           Text(item.english)
+                               .fontWeight(.heavy)
+                               .offset(x: 12.0)
+                               
+                           Text(item.portuguese)
+                               .opacity(0.8)
+                               .offset(x: 12.0)
+                               
+                       }
+                       .padding(.vertical, 6.0)
+                   }
+                   .onDelete { indexSet in
+                       print(indexSet)
+
+                    }
+                   .listRowInsets(EdgeInsets())
+               }
+               .listStyle(PlainListStyle())
+              
+        
             Spacer()
         }
     }
