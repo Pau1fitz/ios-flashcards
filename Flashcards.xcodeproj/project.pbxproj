@@ -16,6 +16,7 @@
 		E2881C5229E0A25200AD69A4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C5129E0A25200AD69A4 /* CardView.swift */; };
 		E2881C5429E432F100AD69A4 /* TranslationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C5329E432F100AD69A4 /* TranslationListView.swift */; };
 		E2881C5629E4334200AD69A4 /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C5529E4334200AD69A4 /* FlashcardView.swift */; };
+		E2881C5829E45BC000AD69A4 /* TranslationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C5729E45BC000AD69A4 /* TranslationStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		E2881C5129E0A25200AD69A4 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		E2881C5329E432F100AD69A4 /* TranslationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationListView.swift; sourceTree = "<group>"; };
 		E2881C5529E4334200AD69A4 /* FlashcardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardView.swift; sourceTree = "<group>"; };
+		E2881C5729E45BC000AD69A4 /* TranslationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				E2881C5529E4334200AD69A4 /* FlashcardView.swift */,
 				E2881C5129E0A25200AD69A4 /* CardView.swift */,
 				E2881C5329E432F100AD69A4 /* TranslationListView.swift */,
+				E2881C5729E45BC000AD69A4 /* TranslationStore.swift */,
 				E2881C4529E09F9700AD69A4 /* Assets.xcassets */,
 				E2881C4729E09F9700AD69A4 /* Preview Content */,
 			);
@@ -199,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2881C5829E45BC000AD69A4 /* TranslationStore.swift in Sources */,
 				E2881C4429E09F9300AD69A4 /* ContentView.swift in Sources */,
 				E2881C5629E4334200AD69A4 /* FlashcardView.swift in Sources */,
 				E2881C5029E0A23200AD69A4 /* Card.swift in Sources */,

@@ -8,24 +8,27 @@
 import SwiftUI
 
 struct FlashcardView: View {
-    @State private var cards = [Card](repeating: Card.example, count: 10)
+    @Binding var translations: [TranslatedItem]
     
     var body: some View {
         ZStack {
             VStack {
                 ZStack {
-                    ForEach(0..<cards.count, id: \.self) { index in
-                        CardView(card: cards[index])
-                            .stacked(at: index, in: cards.count)
+                    ForEach(0..<translations.count, id: \.self) { index in
+                        CardView(card: translations[index])
+                            .stacked(at: index, in: translations.count)
                     }
                 }
+                HStack {
+                    Spacer()
+                    Button("Restart") {
+    //                    translateData()
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+                .padding(.horizontal)
             }
-        }
-    }
-}
 
-struct FlashcardView_Previews: PreviewProvider {
-    static var previews: some View {
-        FlashcardView()
+        }
     }
 }

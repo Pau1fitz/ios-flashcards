@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CardView: View {
-    let card: Card
+    let card: TranslatedItem
     
     @State private var isShowingAnswer = false
     @State private var offset = CGSize.zero
@@ -22,12 +22,12 @@ struct CardView: View {
                     .shadow(radius: 4)
 
                 VStack {
-                    Text(card.prompt)
+                    Text(card.english)
                         .font(.title2)
                         .foregroundColor(.black)
 
                     if isShowingAnswer {
-                        Text(card.answer)
+                        Text(card.portuguese)
                             .font(.title2)
                             .foregroundColor(.gray)
                     }
@@ -61,8 +61,3 @@ struct CardView: View {
     }
 }
 
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView(card: Card.example)
-    }
-}

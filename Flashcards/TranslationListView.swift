@@ -14,16 +14,24 @@ struct Post: Encodable {
     let target: String
 }
 
-struct TranslatedItem {
-    var id: String
+struct TranslatedItem: Identifiable, Codable {
+    let id: UUID
     var english: String
     var portuguese: String
+    
+    init(id: UUID = UUID(), english: String, portuguese: String) {
+        self.id = id
+        self.english = english
+        self.portuguese = portuguese
+    }
 }
 
 struct TranslationListView: View {
     @State private var translatedTextRequest: String = ""
     @State private var translation: String? = nil
-    @State private var previouslyTranslatedItems:[TranslatedItem] = []
+    
+    @Binding var translations: [TranslatedItem]
+    let saveAction: ()->Void
     
     func translateData() {
         let translationRequest = Post(q: translatedTextRequest, source: "en", target: "pt")
@@ -38,8 +46,12 @@ struct TranslationListView: View {
                             let json = try JSONSerialization.jsonObject(with: value!, options: [])
                             if let dict = json as? [String: Any],
                             let translatedText = dict["translatedText"] as? String {
+                                print("translated text")
+                                print(translatedText)
+                                print("translated text")
                                 self.translation = translatedText
-                                previouslyTranslatedItems.append(TranslatedItem(id: UUID().uuidString, english: translatedTextRequest, portuguese: translatedText))
+                                translations.append(TranslatedItem(id: UUID(), english: translatedTextRequest, portuguese: translatedText))
+                                saveAction()
                                 self.translatedTextRequest = ""
                             } else {
                                 print("Invalid response format")
@@ -71,19 +83,14 @@ struct TranslationListView: View {
             }
             .padding(.horizontal)
             
-            Divider()
-            
-            
-            ForEach(previouslyTranslatedItems, id: \.id) { item in
+    
+            List(translations, id: \.id) { item in
                 VStack(alignment: .leading) {
                     Text(item.english)
                         .fontWeight(.heavy)
                     Text(item.portuguese)
                         .opacity(0.8)
                 }
-                .padding(12.0)
-                Divider()
-               
             }
             Spacer()
         }
