@@ -14,18 +14,6 @@ struct Post: Encodable {
     let target: String
 }
 
-struct TranslatedItem: Identifiable, Codable {
-    let id: UUID
-    var english: String
-    var portuguese: String
-    
-    init(id: UUID = UUID(), english: String, portuguese: String) {
-        self.id = id
-        self.english = english
-        self.portuguese = portuguese
-    }
-}
-
 struct TranslationListView: View {
     @State private var translatedTextRequest: String = ""
     @State private var translation: String? = nil
