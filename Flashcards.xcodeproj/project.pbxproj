@@ -101,21 +101,14 @@
 		E2881C4029E09F9300AD69A4 /* Flashcards */ = {
 			isa = PBXGroup;
 			children = (
-				E2881C4129E09F9300AD69A4 /* FlashcardsApp.swift */,
-				E2881C4F29E0A23200AD69A4 /* Card.swift */,
-				E2881C4329E09F9300AD69A4 /* ContentView.swift */,
-				E2881C5529E4334200AD69A4 /* FlashcardView.swift */,
-				E2881C5129E0A25200AD69A4 /* CardView.swift */,
-				E2881C5329E432F100AD69A4 /* TranslationListView.swift */,
-				E2881C5929E468B000AD69A4 /* TranslatedItem.swift */,
-				E2881C5729E45BC000AD69A4 /* TranslationStore.swift */,
-				E2881C6129E4A39900AD69A4 /* PublicationView.swift */,
-				E2881C5F29E4A38100AD69A4 /* SoundManager.swift */,
+				E2881C6D29E4B86600AD69A4 /* Cards */,
+				E2881C6C29E4B84400AD69A4 /* Radio */,
+				E2881C6B29E4B81D00AD69A4 /* Translations */,
+				E2881C6E29E4B87B00AD69A4 /* Publications */,
 				E2881C6929E4A42200AD69A4 /* HomeView.swift */,
-				E2881C6329E4A3B600AD69A4 /* Publication.swift */,
-				E2881C6529E4A3CE00AD69A4 /* RadioStationView.swift */,
-				E2881C5D29E4A36200AD69A4 /* RadioStations.swift */,
 				E2881C6729E4A3E600AD69A4 /* WebView.swift */,
+				E2881C4329E09F9300AD69A4 /* ContentView.swift */,
+				E2881C4129E09F9300AD69A4 /* FlashcardsApp.swift */,
 				E2881C4529E09F9700AD69A4 /* Assets.xcassets */,
 				E2881C4729E09F9700AD69A4 /* Preview Content */,
 			);
@@ -128,6 +121,45 @@
 				E2881C4829E09F9700AD69A4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E2881C6B29E4B81D00AD69A4 /* Translations */ = {
+			isa = PBXGroup;
+			children = (
+				E2881C5329E432F100AD69A4 /* TranslationListView.swift */,
+				E2881C5729E45BC000AD69A4 /* TranslationStore.swift */,
+				E2881C5929E468B000AD69A4 /* TranslatedItem.swift */,
+			);
+			path = Translations;
+			sourceTree = "<group>";
+		};
+		E2881C6C29E4B84400AD69A4 /* Radio */ = {
+			isa = PBXGroup;
+			children = (
+				E2881C5D29E4A36200AD69A4 /* RadioStations.swift */,
+				E2881C6529E4A3CE00AD69A4 /* RadioStationView.swift */,
+				E2881C5F29E4A38100AD69A4 /* SoundManager.swift */,
+			);
+			path = Radio;
+			sourceTree = "<group>";
+		};
+		E2881C6D29E4B86600AD69A4 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				E2881C5529E4334200AD69A4 /* FlashcardView.swift */,
+				E2881C4F29E0A23200AD69A4 /* Card.swift */,
+				E2881C5129E0A25200AD69A4 /* CardView.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		E2881C6E29E4B87B00AD69A4 /* Publications */ = {
+			isa = PBXGroup;
+			children = (
+				E2881C6129E4A39900AD69A4 /* PublicationView.swift */,
+				E2881C6329E4A3B600AD69A4 /* Publication.swift */,
+			);
+			path = Publications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

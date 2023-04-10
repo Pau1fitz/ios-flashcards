@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var store = TranslationsStore()
+    @State var isRadioPlaying = false
  
     func saveTranslations () {
         TranslationsStore.save(translatedItems: store.translations) { result in
