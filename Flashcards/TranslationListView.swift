@@ -46,9 +46,6 @@ struct TranslationListView: View {
                             let json = try JSONSerialization.jsonObject(with: value!, options: [])
                             if let dict = json as? [String: Any],
                             let translatedText = dict["translatedText"] as? String {
-                                print("translated text")
-                                print(translatedText)
-                                print("translated text")
                                 self.translation = translatedText
                                 translations.append(TranslatedItem(id: UUID(), english: translatedTextRequest, portuguese: translatedText))
                                 saveAction()
@@ -84,7 +81,7 @@ struct TranslationListView: View {
             .padding(.horizontal)
             
     
-            List(translations, id: \.id) { item in
+            List($translations, id: \.id, editActions: .delete) { $item in
                 VStack(alignment: .leading) {
                     Text(item.english)
                         .fontWeight(.heavy)
