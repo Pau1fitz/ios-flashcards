@@ -46,9 +46,12 @@ struct RadioStationView: View {
             }
         }
         .onAppear(perform: {
-            soundManager.playSound(sound: radioStation.url)
-            soundManager.audioPlayer?.play()
-            isPlaying.toggle()
+            if(!isPlaying) {
+                soundManager.playSound(sound: radioStation.url)
+                soundManager.audioPlayer?.play()
+                isPlaying.toggle()
+            }
+        
         })
     }
 }
