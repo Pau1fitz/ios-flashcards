@@ -55,9 +55,7 @@ struct TranslationListView: View {
                      case let .failure(error):
                          print(error)
                  }
-                         }
-           
-                
+             }
         }
     }
 

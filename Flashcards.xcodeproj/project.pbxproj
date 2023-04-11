@@ -85,7 +85,6 @@
 		E2881C3529E09F9300AD69A4 = {
 			isa = PBXGroup;
 			children = (
-				E2881C7529E602F300AD69A4 /* Config.xcconfig */,
 				E2881C4029E09F9300AD69A4 /* Flashcards */,
 				E2881C3F29E09F9300AD69A4 /* Products */,
 				94160CE51E2910DB6A695A6E /* Pods */,
@@ -104,7 +103,6 @@
 		E2881C4029E09F9300AD69A4 /* Flashcards */ = {
 			isa = PBXGroup;
 			children = (
-				E2881C7629E605C500AD69A4 /* Info.plist */,
 				E2881C6D29E4B86600AD69A4 /* Cards */,
 				E2881C6C29E4B84400AD69A4 /* Radio */,
 				E2881C6B29E4B81D00AD69A4 /* Translations */,
@@ -114,6 +112,8 @@
 				E2881C4329E09F9300AD69A4 /* ContentView.swift */,
 				E2881C4129E09F9300AD69A4 /* FlashcardsApp.swift */,
 				E2881C4529E09F9700AD69A4 /* Assets.xcassets */,
+				E2881C7629E605C500AD69A4 /* Info.plist */,
+				E2881C7529E602F300AD69A4 /* Config.xcconfig */,
 				E2881C4729E09F9700AD69A4 /* Preview Content */,
 			);
 			path = Flashcards;
