@@ -9,8 +9,7 @@ import SwiftUI
 
 struct CardView: View {
     let card: TranslatedItem
-    
-    @State private var isShowingAnswer = false
+    @Binding var isShowingAnswer: Bool
     @State private var offset = CGSize.zero
     
     var body: some View {

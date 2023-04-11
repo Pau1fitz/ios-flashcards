@@ -8,12 +8,6 @@
 import SwiftUI
 import Alamofire
 
-struct Post: Encodable {
-    let q: String
-    let source: String
-    let target: String
-}
-
 struct TranslationListView: View {
     @State private var translatedTextRequest: String = ""
     @State private var translation: String? = nil
@@ -24,33 +18,46 @@ struct TranslationListView: View {
     
     func translateData() {
         if self.translatedTextRequest != "" {
-            let translationRequest = Post(q: translatedTextRequest, source: "pt", target: "en")
+            let parameters: Parameters = ["text": translatedTextRequest, "target_lang": "EN"]
+            let headers: HTTPHeaders = [
+                "Authorization": Bundle.main.infoDictionary?["API_KEY"] as! String,
+                "Accept": "application/json"
+            ]
+            
             AF.request(
-                "https://translate.terraprint.co/translate",
-                method: .post,
-                parameters: translationRequest,
-                encoder: JSONParameterEncoder.default).response { response in
-                    switch response.result {
-                        case let .success(value):
-                            do {
-                                let json = try JSONSerialization.jsonObject(with: value!, options: [])
-                                if let dict = json as? [String: Any],
-                                let translatedText = dict["translatedText"] as? String {
-                                    self.translation = translatedText
-                                    translations.append(TranslatedItem(id: UUID(), english: translatedText, portuguese: translatedTextRequest))
-                                    saveAction()
-                                    self.translatedTextRequest = ""
-                                } else {
-                                    print("Invalid response format")
-                                }
-                            } catch {
-                                print("Error decoding response: \(error)")
-                        }
+                 "https://api-free.deepl.com/v2/translate",
+                 method: .post,
+                 parameters: parameters,
+                 headers: headers
+             ).response { response in
+                 switch response.result {
+                     case let .success(value):
+                         do {
+                             let json = try JSONSerialization.jsonObject(with: value!, options: [])
+                             if let jsonDict = json as? [String: Any] {
+                             if let translationsArray = jsonDict["translations"] as? [[String: Any]] {
+                                 if let firstTranslationDict = translationsArray.first {
+                                     if let translatedText = firstTranslationDict["text"] as? String {
+                                         self.translation = translatedText
+                                         translations.insert(TranslatedItem(id: UUID(), english: translatedText, portuguese: translatedTextRequest), at: 0)
+                                         saveAction()
+                                         self.translatedTextRequest = ""
+                                     }
+                                 }
+                             }
+                         } else {
+                             print("Invalid response format")
+                         }
+                     } catch {
+                         print("Error decoding response: \(error)")
+                 }
 
-                        case let .failure(error):
-                            print(error)
-                    }
-                }
+                     case let .failure(error):
+                         print(error)
+                 }
+                         }
+           
+                
         }
     }
 
