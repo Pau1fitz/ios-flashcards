@@ -28,6 +28,7 @@ struct FlashcardView: View {
                         }
                     }
                     .buttonStyle(.borderedProminent)
+                    .tint(Color.black)
                     
                     Spacer()
                     
@@ -39,6 +40,7 @@ struct FlashcardView: View {
                         
                     }
                     .buttonStyle(.borderedProminent)
+                    .tint(Color.black)
                     
                     Spacer()
                 }

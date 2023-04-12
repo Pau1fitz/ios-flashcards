@@ -8,7 +8,6 @@
 import SwiftUI
 import Alamofire
 
-
 struct TranslationListView: View {
     @State private var translatedTextRequest: String = ""
     @State private var translation: String? = nil
@@ -16,6 +15,8 @@ struct TranslationListView: View {
     @Binding var translations: [TranslatedItem]
     @Binding var currentIndex: Int
     let saveAction: () -> Void
+    
+    @FocusState private var isTextFieldFocused: Bool
     
     func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
@@ -65,42 +66,43 @@ struct TranslationListView: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Divider()
-            
-            ZStack(alignment: .leading) {
-                HStack (alignment: .top) {
-                    TextEditor(text: $translatedTextRequest)
-                        .font(.system(size: 14))
-                        .frame(height: 100.0)
-                        .frame(maxHeight: 100.0)
-                }
-                .padding(8.0)
+        ZStack {
+            VStack(alignment: .leading) {
+                Divider()
                 
-                if self.translatedTextRequest == "" {
+                ZStack(alignment: .leading) {
                     HStack (alignment: .top) {
-                        Text("Translate...")
+                        TextEditor(text: $translatedTextRequest)
+                            .focused($isTextFieldFocused)
                             .font(.system(size: 14))
+                            .frame(height: 100.0)
+                            .frame(maxHeight: 100.0)
                     }
                     .padding(8.0)
-                    .offset(x: 6.0, y: -32.0)
+                    
+                    if self.translatedTextRequest == "" {
+                        HStack (alignment: .top) {
+                            Text("Translate...")
+                                .font(.system(size: 14))
+                        }
+                        .padding(8.0)
+                        .offset(x: 6.0, y: -32.0)
+                    }
                 }
-            }
-            
-            
-            HStack {
-                Spacer()
-                Button("Translate") {
-                    translateData()
-                    hideKeyboard()
+                
+                HStack {
+                    Spacer()
+                    Button("Translate") {
+                        translateData()
+                        hideKeyboard()
+                    }
+                    .buttonStyle(.borderedProminent)
                 }
-                .buttonStyle(.borderedProminent)
-            }
-            .padding(.horizontal)
-            
-            Divider()
-            
-            List {
+                .padding(.horizontal)
+                
+                Divider()
+                
+                List {
                    ForEach(translations, id: \.id) { item in
                        VStack(alignment: .leading) {
                            Text(item.portuguese)
@@ -108,27 +110,39 @@ struct TranslationListView: View {
                                .font(.system(size: 14))
                                .offset(x: 12.0)
                                
+                                   
                            Text(item.english)
                                .opacity(0.8)
                                .font(.system(size: 12))
                                .offset(x: 12.0)
                        }
-                       .padding(.vertical, 6.0)
+                       .padding(6.0)
                    }
                    .onDelete { indexSet in
                        translations.remove(atOffsets: indexSet)
                        currentIndex = 0
                        saveAction()
+                       hideKeyboard()
                     }
                    .listRowInsets(EdgeInsets())
                }
                .listStyle(PlainListStyle())
+                
+                Spacer()
+            }
+        }
+        .overlay(
+            isTextFieldFocused ?
+            Color.clear
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                .offset(y: 150)
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    hideKeyboard()
+                }
             
-            Spacer()
-        }
-        .onTapGesture {
-            hideKeyboard()
-        }
+            : nil
+        )
     }
 }
 
