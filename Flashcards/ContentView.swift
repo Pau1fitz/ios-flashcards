@@ -21,9 +21,14 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            HomeView()
+            JornaisListView()
                 .tabItem {
-                    Label("Home", systemImage: "house")
+                    Label("Jornais", systemImage: "book")
+                }
+            
+            RadioListView()
+                .tabItem {
+                    Label("Rádio", systemImage: "antenna.radiowaves.left.and.right")
                 }
             
             TranslationListView(translations: $store.translations, currentIndex: $store.currentIndex, saveAction: saveTranslations)

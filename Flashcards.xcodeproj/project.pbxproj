@@ -26,6 +26,8 @@
 		E2881C6829E4A3E600AD69A4 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C6729E4A3E600AD69A4 /* WebView.swift */; };
 		E2881C6A29E4A42200AD69A4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C6929E4A42200AD69A4 /* HomeView.swift */; };
 		E2881C7829E6AE2C00AD69A4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2881C7729E6AE2C00AD69A4 /* Launch Screen.storyboard */; };
+		E2881C7C29E6B2FD00AD69A4 /* JornaisListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C7B29E6B2FD00AD69A4 /* JornaisListView.swift */; };
+		E2881C7E29E6B3C100AD69A4 /* RadioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C7D29E6B3C100AD69A4 /* RadioListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		E2881C7529E602F300AD69A4 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		E2881C7629E605C500AD69A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E2881C7729E6AE2C00AD69A4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		E2881C7B29E6B2FD00AD69A4 /* JornaisListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JornaisListView.swift; sourceTree = "<group>"; };
+		E2881C7D29E6B3C100AD69A4 /* RadioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 				E2881C5D29E4A36200AD69A4 /* RadioStations.swift */,
 				E2881C6529E4A3CE00AD69A4 /* RadioStationView.swift */,
 				E2881C5F29E4A38100AD69A4 /* SoundManager.swift */,
+				E2881C7D29E6B3C100AD69A4 /* RadioListView.swift */,
 			);
 			path = Radio;
 			sourceTree = "<group>";
@@ -163,6 +168,7 @@
 		E2881C6E29E4B87B00AD69A4 /* Publications */ = {
 			isa = PBXGroup;
 			children = (
+				E2881C7B29E6B2FD00AD69A4 /* JornaisListView.swift */,
 				E2881C6129E4A39900AD69A4 /* PublicationView.swift */,
 				E2881C6329E4A3B600AD69A4 /* Publication.swift */,
 			);
@@ -272,6 +278,7 @@
 				E2881C6A29E4A42200AD69A4 /* HomeView.swift in Sources */,
 				E2881C5629E4334200AD69A4 /* FlashcardView.swift in Sources */,
 				E2881C5029E0A23200AD69A4 /* Card.swift in Sources */,
+				E2881C7E29E6B3C100AD69A4 /* RadioListView.swift in Sources */,
 				E2881C6229E4A39900AD69A4 /* PublicationView.swift in Sources */,
 				E2881C6429E4A3B600AD69A4 /* Publication.swift in Sources */,
 				E2881C5229E0A25200AD69A4 /* CardView.swift in Sources */,
@@ -279,6 +286,7 @@
 				E2881C6629E4A3CE00AD69A4 /* RadioStationView.swift in Sources */,
 				E2881C5429E432F100AD69A4 /* TranslationListView.swift in Sources */,
 				E2881C5E29E4A36200AD69A4 /* RadioStations.swift in Sources */,
+				E2881C7C29E6B2FD00AD69A4 /* JornaisListView.swift in Sources */,
 				E2881C6029E4A38100AD69A4 /* SoundManager.swift in Sources */,
 				E2881C6829E4A3E600AD69A4 /* WebView.swift in Sources */,
 			);

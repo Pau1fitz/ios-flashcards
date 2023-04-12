@@ -76,5 +76,17 @@ let radioStations: [RadioStation] = [
         url: "https://radiocast.rtp.pt/antena380a.mp3",
         logo: "antena3"
     ),
+    RadioStation(
+        name: "Renascença",
+        image: createFavicon(url: "https://rr.sapo.pt/"),
+        url: "https://25533.live.streamtheworld.com/RADIO_RENASCENCA_SC",
+        logo: "rr"
+    ),
+    RadioStation(
+        name: "TSF",
+        image: createFavicon(url: "https://www.tsf.pt/"),
+        url: "https://tsfdirecto.tsf.pt/tsfdirecto.mp3",
+        logo: "tsf"
+    )
 ]
 
