@@ -33,7 +33,7 @@ struct ContentView: View {
             
             FlashcardView(translations: $store.translations, currentIndex: $store.currentIndex)
                 .tabItem {
-                    Label("Flashcards", systemImage: "greetingcard.fill")
+                    Label("Flashcards", systemImage: "square.on.square")
                }
         }
         .onAppear {
