@@ -7,7 +7,10 @@
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
+		<string>fetch</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIImageName</key>

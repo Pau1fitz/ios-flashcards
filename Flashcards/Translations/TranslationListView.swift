@@ -8,6 +8,7 @@
 import SwiftUI
 import Alamofire
 
+
 struct TranslationListView: View {
     @State private var translatedTextRequest: String = ""
     @State private var translation: String? = nil
@@ -15,6 +16,10 @@ struct TranslationListView: View {
     @Binding var translations: [TranslatedItem]
     @Binding var currentIndex: Int
     let saveAction: () -> Void
+    
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
     
     func translateData() {
         if self.translatedTextRequest != "" {
@@ -52,8 +57,8 @@ struct TranslationListView: View {
                          print("Error decoding response: \(error)")
                  }
 
-                     case let .failure(error):
-                         print(error)
+                 case let .failure(error):
+                     print(error)
                  }
              }
         }
@@ -87,6 +92,7 @@ struct TranslationListView: View {
                 Spacer()
                 Button("Translate") {
                     translateData()
+                    hideKeyboard()
                 }
                 .buttonStyle(.borderedProminent)
             }
@@ -119,6 +125,9 @@ struct TranslationListView: View {
                .listStyle(PlainListStyle())
             
             Spacer()
+        }
+        .onTapGesture {
+            hideKeyboard()
         }
     }
 }
