@@ -77,6 +77,12 @@ let radioStations: [RadioStation] = [
         logo: "antena3"
     ),
     RadioStation(
+        name: "Açores",
+        image: "https://i.postimg.cc/zBbYxqHq/acores.png",
+        url: "https://streaming-live.rtp.pt/liveradio/antena1acores80a/playlist.m3u8",
+        logo: "acores"
+    ),
+    RadioStation(
         name: "Renascença",
         image: createFavicon(url: "https://rr.sapo.pt/"),
         url: "https://25533.live.streamtheworld.com/RADIO_RENASCENCA_SC",

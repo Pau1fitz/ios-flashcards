@@ -50,7 +50,6 @@ let sportPublications: [Publication] = [
     )
 ]
 
-
 let fashionPublications: [Publication] = [
     Publication(
         name:"Vogue",
@@ -66,6 +65,11 @@ let fashionPublications: [Publication] = [
         name:"Máxima",
         url: URL(string: "https://www.maxima.pt/")!,
         image: createFavicon(url: "https://www.maxima.pt/")
+    ),
+    Publication(
+        name:"Activa",
+        url: URL(string: "https://activa.sapo.pt/")!,
+        image: createFavicon(url: "https://activa.sapo.pt/")
     )
 ]
 
