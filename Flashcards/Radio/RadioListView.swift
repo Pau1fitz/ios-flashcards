@@ -29,9 +29,6 @@ struct RadioListView: View {
                          }
                     }
                 }
-               
-
-        
             }
             .navigationTitle("Rádio")
         }
