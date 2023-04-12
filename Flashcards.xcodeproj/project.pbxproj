@@ -25,6 +25,7 @@
 		E2881C6629E4A3CE00AD69A4 /* RadioStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C6529E4A3CE00AD69A4 /* RadioStationView.swift */; };
 		E2881C6829E4A3E600AD69A4 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C6729E4A3E600AD69A4 /* WebView.swift */; };
 		E2881C6A29E4A42200AD69A4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C6929E4A42200AD69A4 /* HomeView.swift */; };
+		E2881C7829E6AE2C00AD69A4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2881C7729E6AE2C00AD69A4 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		E2881C6929E4A42200AD69A4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E2881C7529E602F300AD69A4 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		E2881C7629E605C500AD69A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E2881C7729E6AE2C00AD69A4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				E2881C4329E09F9300AD69A4 /* ContentView.swift */,
 				E2881C4129E09F9300AD69A4 /* FlashcardsApp.swift */,
 				E2881C4529E09F9700AD69A4 /* Assets.xcassets */,
+				E2881C7729E6AE2C00AD69A4 /* Launch Screen.storyboard */,
 				E2881C7629E605C500AD69A4 /* Info.plist */,
 				E2881C7529E602F300AD69A4 /* Config.xcconfig */,
 				E2881C4729E09F9700AD69A4 /* Preview Content */,
@@ -225,6 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2881C7829E6AE2C00AD69A4 /* Launch Screen.storyboard in Resources */,
 				E2881C4929E09F9700AD69A4 /* Preview Assets.xcassets in Resources */,
 				E2881C4629E09F9700AD69A4 /* Assets.xcassets in Resources */,
 			);
@@ -412,12 +416,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Flashcards/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = fala;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -444,12 +449,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Flashcards/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = fala;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

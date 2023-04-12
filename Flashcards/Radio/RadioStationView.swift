@@ -25,7 +25,7 @@ struct RadioStationView: View {
                         
                 Spacer()
 
-                if(isBuffering) {
+                if isBuffering {
                     VStack {
                         ProgressView()
                     }
@@ -46,7 +46,7 @@ struct RadioStationView: View {
             }
         }
         .onAppear(perform: {
-            if(!isPlaying) {
+            if !isPlaying {
                 soundManager.playSound(sound: radioStation.url)
                 soundManager.audioPlayer?.play()
                 isPlaying.toggle()
