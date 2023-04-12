@@ -87,6 +87,12 @@ let radioStations: [RadioStation] = [
         image: createFavicon(url: "https://www.tsf.pt/"),
         url: "https://tsfdirecto.tsf.pt/tsfdirecto.mp3",
         logo: "tsf"
+    ),
+    RadioStation(
+        name: "Rádio Observador",
+        image: createFavicon(url: "https://observador.pt/radio/"),
+        url: "https://23613.live.streamtheworld.com/OBSERVADORAAC_SC",
+        logo: "observador"
     )
 ]
 

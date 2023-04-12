@@ -61,6 +61,11 @@ let fashionPublications: [Publication] = [
         name:"Marie Claire",
         url: URL(string: "https://revistamarieclaire.globo.com/")!,
         image: createFavicon(url: "https://www.marieclaireinternational.com/")
+    ),
+    Publication(
+        name:"Máxima",
+        url: URL(string: "https://www.maxima.pt/")!,
+        image: createFavicon(url: "https://www.maxima.pt/")
     )
 ]
 

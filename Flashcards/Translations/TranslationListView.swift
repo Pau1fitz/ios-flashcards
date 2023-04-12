@@ -74,7 +74,7 @@ struct TranslationListView: View {
                     HStack (alignment: .top) {
                         TextEditor(text: $translatedTextRequest)
                             .focused($isTextFieldFocused)
-                            .font(.system(size: 14))
+                            .font(.system(size: 16.0))
                             .frame(height: 100.0)
                             .frame(maxHeight: 100.0)
                     }
@@ -83,7 +83,7 @@ struct TranslationListView: View {
                     if self.translatedTextRequest == "" {
                         HStack (alignment: .top) {
                             Text("Translate...")
-                                .font(.system(size: 14))
+                                .font(.system(size: 16.0))
                         }
                         .padding(8.0)
                         .offset(x: 6.0, y: -32.0)
@@ -97,6 +97,7 @@ struct TranslationListView: View {
                         hideKeyboard()
                     }
                     .buttonStyle(.borderedProminent)
+                    .tint(Color.black)
                 }
                 .padding(.horizontal)
                 
@@ -107,13 +108,12 @@ struct TranslationListView: View {
                        VStack(alignment: .leading) {
                            Text(item.portuguese)
                                .fontWeight(.heavy)
-                               .font(.system(size: 14))
+                               .font(.system(size: 16.0))
                                .offset(x: 12.0)
-                               
                                    
                            Text(item.english)
                                .opacity(0.8)
-                               .font(.system(size: 12))
+                               .font(.system(size: 14.0))
                                .offset(x: 12.0)
                        }
                        .padding(6.0)

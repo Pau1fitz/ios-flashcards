@@ -19,10 +19,13 @@ struct CardView: View {
                 .shadow(radius: 4)
 
             VStack {
-                Text(card.portuguese)
-                    .fontWeight(.heavy)
-                    .font(.system(size: 16))
-
+                VStack {
+                    Text(card.portuguese)
+                        .fontWeight(.heavy)
+                        .font(.system(size: 16))
+                }
+                .padding([.vertical], 8.0)
+               
                 if isShowingAnswer {
                     Text(card.english)
                         .opacity(0.8)
@@ -35,7 +38,9 @@ struct CardView: View {
         .padding()
         .frame(width: UIScreen.main.bounds.size.width, height: 250)
         .onTapGesture {
-            isShowingAnswer.toggle()
+            withAnimation {
+                isShowingAnswer.toggle()
+            }
         }
     }
 }
