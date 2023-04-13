@@ -73,6 +73,7 @@ struct JornaisListView: View {
             }
             .navigationTitle("Jornais")
         }
+        .accentColor(.black)
     }
 }
 
