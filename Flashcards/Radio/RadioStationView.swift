@@ -45,10 +45,10 @@ struct RadioStationView: View {
             }
         }
         .onAppear(perform: {
-            if !isPlaying {
+            if soundManager.stationPlaying?.name != radioStation.name {
                 soundManager.playSound(radioStation: radioStation)
                 soundManager.audioPlayer?.play()
-                isPlaying.toggle()
+                isPlaying = true
             }
         
         })
