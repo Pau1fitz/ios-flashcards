@@ -29,6 +29,7 @@
 		E2881C7E29E6B3C100AD69A4 /* RadioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C7D29E6B3C100AD69A4 /* RadioListView.swift */; };
 		E2881C8229E7744100AD69A4 /* NowPlayingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C8129E7744100AD69A4 /* NowPlayingBar.swift */; };
 		E2881C8429E7E93900AD69A4 /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C8329E7E93900AD69A4 /* Border.swift */; };
+		E2C764C929E83D590062C485 /* MatchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C764C829E83D590062C485 /* MatchesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		E2881C7D29E6B3C100AD69A4 /* RadioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioListView.swift; sourceTree = "<group>"; };
 		E2881C8129E7744100AD69A4 /* NowPlayingBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingBar.swift; sourceTree = "<group>"; };
 		E2881C8329E7E93900AD69A4 /* Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Border.swift; sourceTree = "<group>"; };
+		E2C764C829E83D590062C485 /* MatchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				E2881C6C29E4B84400AD69A4 /* Radio */,
 				E2881C6B29E4B81D00AD69A4 /* Translations */,
 				E2881C6E29E4B87B00AD69A4 /* Publications */,
+				E2C764C729E83D2B0062C485 /* Matches */,
 				E2881C6729E4A3E600AD69A4 /* WebView.swift */,
 				E2881C4329E09F9300AD69A4 /* ContentView.swift */,
 				E2881C4129E09F9300AD69A4 /* FlashcardsApp.swift */,
@@ -176,6 +179,14 @@
 				E2881C6329E4A3B600AD69A4 /* Publication.swift */,
 			);
 			path = Publications;
+			sourceTree = "<group>";
+		};
+		E2C764C729E83D2B0062C485 /* Matches */ = {
+			isa = PBXGroup;
+			children = (
+				E2C764C829E83D590062C485 /* MatchesView.swift */,
+			);
+			path = Matches;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +303,7 @@
 				E2881C5E29E4A36200AD69A4 /* RadioStations.swift in Sources */,
 				E2881C7C29E6B2FD00AD69A4 /* JornaisListView.swift in Sources */,
 				E2881C6029E4A38100AD69A4 /* SoundManager.swift in Sources */,
+				E2C764C929E83D590062C485 /* MatchesView.swift in Sources */,
 				E2881C6829E4A3E600AD69A4 /* WebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

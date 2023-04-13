@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TranslatedItem: Identifiable, Codable {
+struct TranslatedItem: Identifiable, Codable, Hashable {
     let id: UUID
     var english: String
     var portuguese: String
@@ -16,5 +16,11 @@ struct TranslatedItem: Identifiable, Codable {
         self.id = id
         self.english = english
         self.portuguese = portuguese
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(english)
+        hasher.combine(portuguese)
     }
 }

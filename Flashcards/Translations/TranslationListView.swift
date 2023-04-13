@@ -7,17 +7,26 @@
 
 import SwiftUI
 import Alamofire
+import AVFoundation
 
 struct TranslationListView: View {
     @State private var translatedTextRequest: String = ""
     @State private var translation: String? = nil
     @State private var targetLanguage: String = "EN"
+    @State private var synthesizer = AVSpeechSynthesizer()
     
     @Binding var translations: [TranslatedItem]
     @Binding var currentIndex: Int
     let saveAction: () -> Void
     
     @FocusState private var isTextFieldFocused: Bool
+
+    func textToSpeech(speak: String) {
+        let utterance = AVSpeechUtterance(string: speak)
+        utterance.voice = AVSpeechSynthesisVoice(language: "pt-PT")
+        utterance.rate = 0.40
+        self.synthesizer.speak(utterance)
+    }
     
     func toggleTargetLanguage () {
         targetLanguage = targetLanguage == "EN" ? "PT" : "EN"
@@ -103,15 +112,6 @@ struct TranslationListView: View {
                             .frame(maxHeight: 100.0)
                     }
                     .padding(8.0)
-                    
-                    if self.translatedTextRequest == "" {
-                        HStack (alignment: .top) {
-                            Text("Translate...")
-                                .font(.system(size: 16.0))
-                        }
-                        .padding(8.0)
-                        .offset(x: 6.0, y: -32.0)
-                    }
                 }
                 
                 HStack {
@@ -129,18 +129,33 @@ struct TranslationListView: View {
                 
                 List {
                    ForEach(translations, id: \.id) { item in
-                       VStack(alignment: .leading) {
-                           Text(item.portuguese)
-                               .fontWeight(.heavy)
-                               .font(.system(size: 16.0))
-                               .offset(x: 12.0)
-                                   
-                           Text(item.english)
-                               .opacity(0.8)
-                               .font(.system(size: 14.0))
-                               .offset(x: 12.0)
+                       HStack {
+                           VStack(alignment: .leading) {
+                               Text(item.portuguese)
+                                   .fontWeight(.heavy)
+                                   .font(.system(size: 16.0))
+                                   .offset(x: 12.0)
+                                       
+                               Text(item.english)
+                                   .opacity(0.8)
+                                   .font(.system(size: 14.0))
+                                   .offset(x: 12.0)
+                           }
+                           .padding(6.0)
+                           
+                           Spacer()
+                           
+                           Button {
+                               textToSpeech(speak: item.portuguese)
+                           } label: {
+                               // enable the whole row to be clickable
+                               Text("hidden button")
+                                   .hidden()
+                           }
+                           .padding(.horizontal, 6.0)
+                        
                        }
-                       .padding(6.0)
+                     
                    }
                    .onDelete { indexSet in
                        translations.remove(atOffsets: indexSet)
@@ -153,6 +168,15 @@ struct TranslationListView: View {
                .listStyle(PlainListStyle())
                 
                 Spacer()
+            }
+        }
+        .onAppear {
+            do {
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+                try AVAudioSession.sharedInstance().setActive(true)
+             }
+            catch {
+                print("Fail to enable session")
             }
         }
         .overlay(

@@ -44,23 +44,32 @@ struct FlashcardView: View {
                 
                 HStack {
                     Spacer()
-                    Button("Previous") {
+                    Button {
                         if currentIndex != 0 {
                             currentIndex = currentIndex - 1
                             isShowingAnswer = false
                         }
+                    } label: {
+                        Text("Previous")
+                            .padding(.horizontal, 8)
+                            .frame(height: 32)
+                            .foregroundColor(.white)
                     }
                     .buttonStyle(.borderedProminent)
                     .tint(Color.black)
                     
                     Spacer()
                     
-                    Button("Next") {
+                    Button {
                         if currentIndex < translations.count - 1 {
                             currentIndex = currentIndex + 1
                             isShowingAnswer = false
                         }
-                        
+                    } label: {
+                        Text("Next")
+                            .padding(.horizontal, 8)
+                            .frame(height: 32)
+                            .foregroundColor(.white)
                     }
                     .buttonStyle(.borderedProminent)
                     .tint(Color.black)
