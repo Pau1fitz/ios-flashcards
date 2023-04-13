@@ -7,24 +7,24 @@
 
 import SwiftUI
 
-
-
 struct NowPlayingBar<Content: View>: View {
     var content: Content
-    var stationPlaying: RadioStation?
+    var soundManager: SoundManager
+    
+    @Binding var isPlaying: Bool
     
     @ViewBuilder var body: some View {
         ZStack(alignment: .bottom) {
             content
-            if stationPlaying != nil {
+            if soundManager.stationPlaying != nil {
                 ZStack {
                     
                     Rectangle().foregroundColor(Color.white).frame(width: UIScreen.main.bounds.size.width, height: 60)
                         .border(width: 1, edges: [.top], color: .black)
                     HStack {
-                        Button(action: {}) {
+                        
                             HStack {
-                                AsyncImage(url: URL(string: stationPlaying!.image)) { image in
+                                AsyncImage(url: URL(string: (soundManager.stationPlaying!.image))) { image in
                                     image.resizable()
                                 } placeholder: {
                                     ProgressView()
@@ -33,17 +33,18 @@ struct NowPlayingBar<Content: View>: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 4.0))
                                 .padding()
                                 
-                                Text(stationPlaying!.name)
+                                Text((soundManager.stationPlaying!.name))
 
                                 Spacer()
                             }
-                        }
-                        .buttonStyle(PlainButtonStyle())
+                      
                         
                         Button(action: {
-                            
+                            soundManager.playSound(radioStation: (soundManager.stationPlaying)!)
+                            !isPlaying ? soundManager.audioPlayer?.play() : soundManager.audioPlayer?.pause()
+                            isPlaying.toggle()
                         }) {
-                            Image(systemName: "play.fill").font(.title3)
+                            Image(systemName: isPlaying ? "pause.fill": "play.fill")
                         }
                         .buttonStyle(PlainButtonStyle()).padding(.horizontal)
                     }

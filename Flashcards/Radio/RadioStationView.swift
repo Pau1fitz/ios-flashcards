@@ -11,8 +11,7 @@ struct RadioStationView: View {
     var radioStation: RadioStation
     var soundManager: SoundManager
     var isBuffering: Bool
-    
-    @State var isPlaying = false
+    @Binding var isPlaying: Bool
     
     var body: some View {
         VStack {

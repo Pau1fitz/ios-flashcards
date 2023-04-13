@@ -10,6 +10,7 @@ import SwiftUI
 struct RadioListView: View {
     
     @StateObject private var soundManager = SoundManager()
+    @State var isPlaying = false
 
     var body: some View {
         NowPlayingBar(content: NavigationStack {
@@ -25,12 +26,12 @@ struct RadioListView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 4.0))
                         
                         NavigationLink(radioStation.name) {
-                            RadioStationView(radioStation: radioStation, soundManager: soundManager, isBuffering: soundManager.isBuffering)
+                            RadioStationView(radioStation: radioStation, soundManager: soundManager, isBuffering: soundManager.isBuffering, isPlaying: $isPlaying)
                          }
                     }
                 }
             }
             .navigationTitle("Rádio")
-        }, stationPlaying: soundManager.stationPlaying)
+        }, soundManager: soundManager, isPlaying: $isPlaying)
     }
 }
