@@ -1,10 +1,11 @@
 //
-//  Border.swift
+//  Utils.swift
 //  Flashcards
 //
 //  Created by Paul Fitzgerald on 13/04/2023.
 //
 
+import Foundation
 import SwiftUI
 
 struct EdgeBorder: Shape {
@@ -53,3 +54,32 @@ extension View {
     }
 }
 
+
+func getRandomItems(from items: [TranslatedItem]) -> [TranslatedItem] {
+    if items.count == 0 {
+        return []
+    }
+    var newItems: [TranslatedItem] = []
+    var chosenItems: Set<TranslatedItem> = []
+
+    while newItems.count <= 6 {
+        let randomIndex = Int.random(in: 0..<items.count)
+        let item = items[randomIndex]
+        if !chosenItems.contains(item) {
+            newItems.append(item)
+            chosenItems.insert(item)
+        }
+    }
+    return newItems
+}
+
+func checkGuesses(guesses: [String], allItems: [TranslatedItem]) -> Bool {
+    var found = false
+    for item in allItems {
+        if (guesses[0] == item.english && guesses[1] == item.portuguese || guesses[1] == item.english && guesses[0] == item.portuguese) {
+            found = true
+            break
+        }
+    }
+    return found
+}

@@ -17,7 +17,7 @@ struct NowPlayingBar<Content: View>: View {
             if soundManager.stationPlaying != nil {
                 ZStack {
                     Rectangle().foregroundColor(Color.white).frame(width: UIScreen.main.bounds.size.width, height: 60)
-                        .border(width: 1, edges: [.top], color: .black)
+                        .border(width: 1.5, edges: [.top], color: .black)
                     HStack {
                         HStack {
                             AsyncImage(url: URL(string: (soundManager.stationPlaying!.image))) { image in

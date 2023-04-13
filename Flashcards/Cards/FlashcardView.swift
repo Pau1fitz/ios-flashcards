@@ -44,6 +44,7 @@ struct FlashcardView: View {
                 
                 HStack {
                     Spacer()
+                    
                     Button {
                         if currentIndex != 0 {
                             currentIndex = currentIndex - 1
