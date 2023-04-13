@@ -42,13 +42,12 @@ struct RadioStationView: View {
                 Spacer()
             }
         }
-        .onAppear(perform: {
+        .onAppear {
             if soundManager.stationPlaying?.name != radioStation.name {
                 soundManager.playSound(radioStation: radioStation)
                 soundManager.play()
             }
-        
-        })
+        }
     }
 }
 

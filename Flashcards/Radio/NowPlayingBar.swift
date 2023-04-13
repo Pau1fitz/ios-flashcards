@@ -19,23 +19,21 @@ struct NowPlayingBar<Content: View>: View {
                     Rectangle().foregroundColor(Color.white).frame(width: UIScreen.main.bounds.size.width, height: 60)
                         .border(width: 1, edges: [.top], color: .black)
                     HStack {
-                        
-                            HStack {
-                                AsyncImage(url: URL(string: (soundManager.stationPlaying!.image))) { image in
-                                    image.resizable()
-                                } placeholder: {
-                                    ProgressView()
-                                }
-                                .frame(width: 45.0, height: 45.0)
-                                .clipShape(RoundedRectangle(cornerRadius: 4.0))
-                                .padding()
-                                
-                                Text((soundManager.stationPlaying!.name))
-
-                                Spacer()
+                        HStack {
+                            AsyncImage(url: URL(string: (soundManager.stationPlaying!.image))) { image in
+                                image.resizable()
+                            } placeholder: {
+                                ProgressView()
                             }
+                            .frame(width: 45.0, height: 45.0)
+                            .clipShape(RoundedRectangle(cornerRadius: 4.0))
+                            .padding()
+                                
+                            Text((soundManager.stationPlaying!.name))
+
+                            Spacer()
+                        }
                       
-                        
                         Button(action: {
                             soundManager.playSound(radioStation: (soundManager.stationPlaying)!)
                             !soundManager.isPlaying ? soundManager.play() : soundManager.pause()

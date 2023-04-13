@@ -30,9 +30,10 @@ class TranslationsStore: ObservableObject {
                      }
                      return
                  }
-                 let dailyScrums = try JSONDecoder().decode([TranslatedItem].self, from: file.availableData)
+                 
+                 let translations = try JSONDecoder().decode([TranslatedItem].self, from: file.availableData)
                  DispatchQueue.main.async {
-                     completion(.success(dailyScrums))
+                     completion(.success(translations))
                  }
              } catch {
                  DispatchQueue.main.async {

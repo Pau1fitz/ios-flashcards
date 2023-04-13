@@ -32,7 +32,7 @@ class SoundManager : ObservableObject {
     
     func setupRemoteTransportControls() {
         let commandCenter = MPRemoteCommandCenter.shared()
-        
+
         commandCenter.playCommand.isEnabled = true
         commandCenter.playCommand.addTarget { [unowned self] event in
             if !self.isPlaying {
