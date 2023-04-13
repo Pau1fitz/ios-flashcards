@@ -9,10 +9,10 @@ import SwiftUI
 
 struct RadioListView: View {
     
-    var soundManager: SoundManager
-    
+    @StateObject private var soundManager = SoundManager()
+
     var body: some View {
-        NavigationStack {
+        NowPlayingBar(content: NavigationStack {
             List {
                 ForEach(radioStations, id: \.name) { radioStation in
                     HStack {
@@ -31,6 +31,6 @@ struct RadioListView: View {
                 }
             }
             .navigationTitle("Rádio")
-        }
+        }, stationPlaying: soundManager.stationPlaying)
     }
 }

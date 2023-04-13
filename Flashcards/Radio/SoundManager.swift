@@ -20,6 +20,10 @@ class SoundManager : ObservableObject {
     func playSound(radioStation: RadioStation){
         if let url = URL(string: radioStation.url) {
             self.audioPlayer = AVPlayer(url: url)
+            observation = audioPlayer?.currentItem?.publisher(for: \.isPlaybackBufferEmpty).sink(receiveValue: { [weak self] isBuffering in
+              self?.isBuffering = isBuffering
+            })
+
             self.stationPlaying = radioStation
             do{
                 try AVAudioSession.sharedInstance().setCategory(.playback)
@@ -29,9 +33,6 @@ class SoundManager : ObservableObject {
             }
             
             self.audioPlayer!.audiovisualBackgroundPlaybackPolicy = .continuesIfPossible
-            observation = audioPlayer?.currentItem?.publisher(for: \.isPlaybackBufferEmpty).sink(receiveValue: { [weak self] isBuffering in
-              self?.isBuffering = isBuffering
-            })
         }
     }
 }
