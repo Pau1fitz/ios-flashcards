@@ -141,7 +141,7 @@ struct TranslationListView: View {
                                    .font(.system(size: 14.0))
                                    .offset(x: 12.0)
                            }
-                           .padding(6.0)
+                           .padding(.vertical, 6.0)
                            
                            Spacer()
                            
@@ -152,8 +152,7 @@ struct TranslationListView: View {
                                Text("hidden button")
                                    .hidden()
                            }
-                           .padding(.horizontal, 6.0)
-                        
+                           .frame(width: 1.0, height: 1.0)
                        }
                      
                    }
@@ -191,6 +190,12 @@ struct TranslationListView: View {
             
             : nil
         )
+    }
+}
+
+struct TranslationListView_Previews: PreviewProvider {
+    static var previews: some View {
+        TranslationListView(translations: .constant([TranslatedItem(english: "Hello", portuguese: "Olá")]), currentIndex: .constant(0), saveAction: {})
     }
 }
 
