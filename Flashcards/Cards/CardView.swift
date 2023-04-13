@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct CardView: View {
     var card: TranslatedItem
@@ -13,6 +14,15 @@ struct CardView: View {
     
     @Binding var isShowingAnswer: Bool
     @State private var offset = CGSize.zero
+    @State private var synthesizer = AVSpeechSynthesizer()
+    
+    func textToSpeech(speak: String) {
+        let utterance = AVSpeechUtterance(string: speak)
+        utterance.voice = AVSpeechSynthesisVoice(language: "pt-PT")
+        utterance.rate = 0.40
+        self.synthesizer.speak(utterance)
+    }
+    
     
     var body: some View {
         ZStack {
@@ -41,7 +51,17 @@ struct CardView: View {
         .frame(width: UIScreen.main.bounds.size.width, height: 250)
         .onTapGesture {
             withAnimation {
+                textToSpeech(speak: card.portuguese)
                 isShowingAnswer.toggle()
+            }
+        }
+        .onAppear {
+            do {
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+                try AVAudioSession.sharedInstance().setActive(true)
+             }
+            catch {
+                print("Fail to enable session")
             }
         }
     }

@@ -31,6 +31,7 @@
 		E2C764C929E83D590062C485 /* MatchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C764C829E83D590062C485 /* MatchesView.swift */; };
 		E2C764CF29E86AC90062C485 /* MatchesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C764CE29E86AC90062C485 /* MatchesCardView.swift */; };
 		E2C764D129E86E010062C485 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C764D029E86E010062C485 /* Utils.swift */; };
+		E2C764D329E8B2330062C485 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C764D229E8B2330062C485 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		E2C764C829E83D590062C485 /* MatchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesView.swift; sourceTree = "<group>"; };
 		E2C764CE29E86AC90062C485 /* MatchesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesCardView.swift; sourceTree = "<group>"; };
 		E2C764D029E86E010062C485 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		E2C764D229E8B2330062C485 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				E2C764C729E83D2B0062C485 /* Matches */,
 				E2881C6729E4A3E600AD69A4 /* WebView.swift */,
 				E2881C4329E09F9300AD69A4 /* ContentView.swift */,
+				E2C764D229E8B2330062C485 /* Colors.swift */,
 				E2881C4129E09F9300AD69A4 /* FlashcardsApp.swift */,
 				E2C764D029E86E010062C485 /* Utils.swift */,
 				E2881C4529E09F9700AD69A4 /* Assets.xcassets */,
@@ -299,6 +302,7 @@
 				E2881C6429E4A3B600AD69A4 /* Publication.swift in Sources */,
 				E2881C5229E0A25200AD69A4 /* CardView.swift in Sources */,
 				E2881C4229E09F9300AD69A4 /* FlashcardsApp.swift in Sources */,
+				E2C764D329E8B2330062C485 /* Colors.swift in Sources */,
 				E2881C8229E7744100AD69A4 /* NowPlayingBar.swift in Sources */,
 				E2881C6629E4A3CE00AD69A4 /* RadioStationView.swift in Sources */,
 				E2881C5429E432F100AD69A4 /* TranslationListView.swift in Sources */,
