@@ -22,12 +22,14 @@ struct PublicationView: View {
                 webview.goBack()
             }) {
                 Image(systemName: "arrow.backward.circle")
+                    .foregroundColor(.black)
             }
 
             Button(action: {
                 webview.goBack()
             }) {
                 Image(systemName: "arrow.forward.circle")
+                    .foregroundColor(.black)
             }
         }
     }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct JornaisListView: View {
+
     var body: some View {
         NavigationStack {
             List {

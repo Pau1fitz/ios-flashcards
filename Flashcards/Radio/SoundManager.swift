@@ -75,7 +75,7 @@ class SoundManager : ObservableObject {
               self?.isBuffering = isBuffering
             })
             
-            do{
+            do {
                 try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, policy: .default, options: .defaultToSpeaker)
                 try AVAudioSession.sharedInstance().setActive(true)
             } catch {
