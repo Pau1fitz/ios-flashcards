@@ -11,12 +11,17 @@ import Alamofire
 struct TranslationListView: View {
     @State private var translatedTextRequest: String = ""
     @State private var translation: String? = nil
+    @State private var chosenLanguage: String = "en"
     
     @Binding var translations: [TranslatedItem]
     @Binding var currentIndex: Int
     let saveAction: () -> Void
     
     @FocusState private var isTextFieldFocused: Bool
+    
+    func toggleLanguage () {
+        chosenLanguage = chosenLanguage == "en" ? "pt" : "en"
+    }
     
     func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
@@ -68,6 +73,23 @@ struct TranslationListView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
+                Divider()
+                
+                HStack (alignment: .center) {
+                    Spacer()
+                    Text(chosenLanguage == "en" ?  "Inglês" : "Português")
+                        .frame(width: 100.0)
+                    Spacer()
+                    Image(systemName: "arrow.right.arrow.left")
+                        .foregroundColor(.black)
+                        .onTapGesture {
+                            toggleLanguage()
+                        }
+                    Spacer()
+                    Text(chosenLanguage == "en" ?  "Português" : "Inglês")
+                        .frame(width: 100.0)
+                    Spacer()
+                }
                 Divider()
                 
                 ZStack(alignment: .leading) {

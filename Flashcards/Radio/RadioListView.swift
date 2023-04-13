@@ -31,6 +31,7 @@ struct RadioListView: View {
                 }
             }
             .navigationTitle("Rádio")
-        }, soundManager: soundManager)
+        }
+        .accentColor(.black), soundManager: soundManager)
     }
 }
