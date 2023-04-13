@@ -11,13 +11,36 @@ struct FlashcardView: View {
     @Binding var translations: [TranslatedItem]
     @Binding var currentIndex: Int
     @State private var isShowingAnswer = false
+    @State private var selectedLanguage: String = "EN"
+    
+    func toggleSelectedLanguage () {
+        selectedLanguage = selectedLanguage == "EN" ? "PT" : "EN"
+    }
     
     var body: some View {
         if translations.count > 0 {
             VStack (alignment: .leading) {
-                Spacer()
+                Divider()
                 
-                CardView(card: translations[currentIndex], isShowingAnswer: $isShowingAnswer)
+                HStack (alignment: .center) {
+                    Spacer()
+                    Text(selectedLanguage == "EN" ? "Inglês" : "Português")
+                        .frame(width: 100.0)
+                    Spacer()
+                    Image(systemName: "arrow.right.arrow.left")
+                        .foregroundColor(.black)
+                        .onTapGesture {
+                            toggleSelectedLanguage()
+                        }
+                    Spacer()
+                    Text(selectedLanguage == "EN" ?  "Português" : "Inglês")
+                        .frame(width: 100.0)
+                    Spacer()
+                    
+                }
+                Divider()
+                
+                CardView(card: translations[currentIndex], selectedLanguage: selectedLanguage, isShowingAnswer: $isShowingAnswer)
                 
                 HStack {
                     Spacer()
@@ -47,9 +70,7 @@ struct FlashcardView: View {
                 .padding()
                 
                 Spacer()
-                    
             }
-            .padding()
         } else {
             Text("No translations available")
         }

@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct CardView: View {
-    let card: TranslatedItem
+    var card: TranslatedItem
+    var selectedLanguage: String
+    
     @Binding var isShowingAnswer: Bool
     @State private var offset = CGSize.zero
     
@@ -20,14 +22,14 @@ struct CardView: View {
 
             VStack {
                 VStack {
-                    Text(card.portuguese)
+                    Text(selectedLanguage == "EN" ? card.english : card.portuguese)
                         .fontWeight(.heavy)
                         .font(.system(size: 16))
                 }
                 .padding([.vertical], 8.0)
                
                 if isShowingAnswer {
-                    Text(card.english)
+                    Text(selectedLanguage == "EN" ? card.portuguese : card.english)
                         .opacity(0.8)
                         .font(.system(size: 14))
                 }
