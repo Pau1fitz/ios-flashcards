@@ -11,14 +11,11 @@ struct NowPlayingBar<Content: View>: View {
     var content: Content
     var soundManager: SoundManager
     
-    @Binding var isPlaying: Bool
-    
     @ViewBuilder var body: some View {
         ZStack(alignment: .bottom) {
             content
             if soundManager.stationPlaying != nil {
                 ZStack {
-                    
                     Rectangle().foregroundColor(Color.white).frame(width: UIScreen.main.bounds.size.width, height: 60)
                         .border(width: 1, edges: [.top], color: .black)
                     HStack {
@@ -41,10 +38,9 @@ struct NowPlayingBar<Content: View>: View {
                         
                         Button(action: {
                             soundManager.playSound(radioStation: (soundManager.stationPlaying)!)
-                            !isPlaying ? soundManager.audioPlayer?.play() : soundManager.audioPlayer?.pause()
-                            isPlaying.toggle()
+                            !soundManager.isPlaying ? soundManager.play() : soundManager.pause()
                         }) {
-                            Image(systemName: isPlaying ? "pause.fill": "play.fill")
+                            Image(systemName: soundManager.isPlaying ? "pause.fill": "play.fill")
                         }
                         .buttonStyle(PlainButtonStyle()).padding(.horizontal)
                     }

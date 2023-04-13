@@ -11,7 +11,6 @@ struct RadioStationView: View {
     var radioStation: RadioStation
     var soundManager: SoundManager
     var isBuffering: Bool
-    @Binding var isPlaying: Bool
     
     var body: some View {
         VStack {
@@ -31,13 +30,12 @@ struct RadioStationView: View {
                     .frame(width: 55.0, height: 55.0)
                     
                 } else {
-                    Image(systemName: isPlaying ? "pause.circle": "play.circle")
+                    Image(systemName: soundManager.isPlaying ? "pause.circle": "play.circle")
                         .font(.system(size: 50))
                         .padding(.trailing)
                         .onTapGesture {
                             soundManager.playSound(radioStation: radioStation)
-                            !isPlaying ? soundManager.audioPlayer?.play() : soundManager.audioPlayer?.pause()
-                            isPlaying.toggle()
+                            !soundManager.isPlaying ? soundManager.play() : soundManager.pause()
                         }
                 }
                     
@@ -47,8 +45,7 @@ struct RadioStationView: View {
         .onAppear(perform: {
             if soundManager.stationPlaying?.name != radioStation.name {
                 soundManager.playSound(radioStation: radioStation)
-                soundManager.audioPlayer?.play()
-                isPlaying = true
+                soundManager.play()
             }
         
         })
