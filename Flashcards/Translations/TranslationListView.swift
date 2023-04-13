@@ -11,7 +11,7 @@ import Alamofire
 struct TranslationListView: View {
     @State private var translatedTextRequest: String = ""
     @State private var translation: String? = nil
-    @State private var chosenLanguage: String = "en"
+    @State private var targetLanguage: String = "EN"
     
     @Binding var translations: [TranslatedItem]
     @Binding var currentIndex: Int
@@ -19,8 +19,8 @@ struct TranslationListView: View {
     
     @FocusState private var isTextFieldFocused: Bool
     
-    func toggleLanguage () {
-        chosenLanguage = chosenLanguage == "en" ? "pt" : "en"
+    func toggleTargetLanguage () {
+        targetLanguage = targetLanguage == "EN" ? "PT" : "EN"
     }
     
     func hideKeyboard() {
@@ -29,7 +29,7 @@ struct TranslationListView: View {
     
     func translateData() {
         if self.translatedTextRequest != "" {
-            let parameters: Parameters = ["text": translatedTextRequest, "target_lang": "EN"]
+            let parameters: Parameters = ["text": translatedTextRequest, "target_lang": targetLanguage]
             let headers: HTTPHeaders = [
                 "Authorization": Bundle.main.infoDictionary?["API_KEY"] as! String,
                 "Accept": "application/json"
@@ -50,7 +50,9 @@ struct TranslationListView: View {
                                  if let firstTranslationDict = translationsArray.first {
                                      if let translatedText = firstTranslationDict["text"] as? String {
                                          self.translation = translatedText
-                                         translations.insert(TranslatedItem(id: UUID(), english: translatedText, portuguese: translatedTextRequest), at: 0)
+                                         let englishText = targetLanguage == "EN" ? translatedText : translatedTextRequest
+                                         let portugueseText = targetLanguage == "PT" ? translatedText : translatedTextRequest
+                                         translations.insert(TranslatedItem(id: UUID(), english: englishText, portuguese: portugueseText), at: 0)
                                          saveAction()
                                          self.translatedTextRequest = ""
                                      }
@@ -77,16 +79,16 @@ struct TranslationListView: View {
                 
                 HStack (alignment: .center) {
                     Spacer()
-                    Text(chosenLanguage == "en" ?  "Inglês" : "Português")
+                    Text(targetLanguage == "EN" ? "Português" : "Inglês")
                         .frame(width: 100.0)
                     Spacer()
                     Image(systemName: "arrow.right.arrow.left")
                         .foregroundColor(.black)
                         .onTapGesture {
-                            toggleLanguage()
+                            toggleTargetLanguage()
                         }
                     Spacer()
-                    Text(chosenLanguage == "en" ?  "Português" : "Inglês")
+                    Text(targetLanguage == "EN" ?  "Inglês" : "Português")
                         .frame(width: 100.0)
                     Spacer()
                 }
