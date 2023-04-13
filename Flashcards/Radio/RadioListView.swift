@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RadioListView: View {
     
-    @StateObject private var soundManager = SoundManager()
+    var soundManager: SoundManager
     
     var body: some View {
         NavigationStack {

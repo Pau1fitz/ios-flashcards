@@ -11,12 +11,16 @@ import Combine
 
 class SoundManager : ObservableObject {
     var audioPlayer: AVPlayer?
+    
     @Published var isBuffering = false
+    @Published var stationPlaying: RadioStation? = nil
+   
     private var observation: AnyCancellable?
     
-    func playSound(sound: String){
-        if let url = URL(string: sound) {
+    func playSound(radioStation: RadioStation){
+        if let url = URL(string: radioStation.url) {
             self.audioPlayer = AVPlayer(url: url)
+            self.stationPlaying = radioStation
             do{
                 try AVAudioSession.sharedInstance().setCategory(.playback)
                 try AVAudioSession.sharedInstance().setActive(true)

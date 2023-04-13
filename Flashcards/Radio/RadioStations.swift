@@ -59,6 +59,12 @@ let radioStations: [RadioStation] = [
         logo: "megahits"
     ),
     RadioStation(
+        name: "Capsao",
+        image: "https://i.postimg.cc/vTWQDhGR/capsao.png",
+        url: "https://capsaolisboa.ice.infomaniak.ch/capsaolisboa-128.mp3",
+        logo: "capsao"
+    ),
+    RadioStation(
         name: "Antena 1",
         image: "https://i.postimg.cc/9fGxdWmY/antena1.png",
         url: "https://radiocast.rtp.pt/antena180a.mp3",
@@ -99,6 +105,14 @@ let radioStations: [RadioStation] = [
         image: createFavicon(url: "https://observador.pt/radio/"),
         url: "https://23613.live.streamtheworld.com/OBSERVADORAAC_SC",
         logo: "observador"
-    )
+    ),
+    RadioStation(
+        name: "Golo FM",
+        image: createFavicon(url: "https://golo.fm/"),
+        url: "https://sp0.redeaudio.com:7175/stream/1/",
+        logo: "golo"
+    ),
+    
+    
 ]
 

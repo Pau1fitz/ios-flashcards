@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var store = TranslationsStore()
-    @State var isRadioPlaying = false
+    @StateObject private var soundManager = SoundManager()
  
     func saveTranslations () {
         TranslationsStore.save(translatedItems: store.translations) { result in
@@ -26,11 +26,11 @@ struct ContentView: View {
                     Label("Jornais", systemImage: "book")
                 }
             
-            RadioListView()
+            NowPlayingBar(content: RadioListView(soundManager: soundManager), stationPlaying: soundManager.stationPlaying)
                 .tabItem {
                     Label("Rádio", systemImage: "antenna.radiowaves.left.and.right")
                 }
-            
+           
             TranslationListView(translations: $store.translations, currentIndex: $store.currentIndex, saveAction: saveTranslations)
                 .tabItem {
                     Label("Translate", systemImage: "list.dash")

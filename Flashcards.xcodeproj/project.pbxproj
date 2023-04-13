@@ -24,10 +24,11 @@
 		E2881C6429E4A3B600AD69A4 /* Publication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C6329E4A3B600AD69A4 /* Publication.swift */; };
 		E2881C6629E4A3CE00AD69A4 /* RadioStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C6529E4A3CE00AD69A4 /* RadioStationView.swift */; };
 		E2881C6829E4A3E600AD69A4 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C6729E4A3E600AD69A4 /* WebView.swift */; };
-		E2881C6A29E4A42200AD69A4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C6929E4A42200AD69A4 /* HomeView.swift */; };
 		E2881C7829E6AE2C00AD69A4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2881C7729E6AE2C00AD69A4 /* Launch Screen.storyboard */; };
 		E2881C7C29E6B2FD00AD69A4 /* JornaisListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C7B29E6B2FD00AD69A4 /* JornaisListView.swift */; };
 		E2881C7E29E6B3C100AD69A4 /* RadioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C7D29E6B3C100AD69A4 /* RadioListView.swift */; };
+		E2881C8229E7744100AD69A4 /* NowPlayingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C8129E7744100AD69A4 /* NowPlayingBar.swift */; };
+		E2881C8429E7E93900AD69A4 /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C8329E7E93900AD69A4 /* Border.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,12 +52,13 @@
 		E2881C6329E4A3B600AD69A4 /* Publication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publication.swift; sourceTree = "<group>"; };
 		E2881C6529E4A3CE00AD69A4 /* RadioStationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStationView.swift; sourceTree = "<group>"; };
 		E2881C6729E4A3E600AD69A4 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
-		E2881C6929E4A42200AD69A4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E2881C7529E602F300AD69A4 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		E2881C7629E605C500AD69A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E2881C7729E6AE2C00AD69A4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E2881C7B29E6B2FD00AD69A4 /* JornaisListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JornaisListView.swift; sourceTree = "<group>"; };
 		E2881C7D29E6B3C100AD69A4 /* RadioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioListView.swift; sourceTree = "<group>"; };
+		E2881C8129E7744100AD69A4 /* NowPlayingBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingBar.swift; sourceTree = "<group>"; };
+		E2881C8329E7E93900AD69A4 /* Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Border.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,10 +115,10 @@
 				E2881C6C29E4B84400AD69A4 /* Radio */,
 				E2881C6B29E4B81D00AD69A4 /* Translations */,
 				E2881C6E29E4B87B00AD69A4 /* Publications */,
-				E2881C6929E4A42200AD69A4 /* HomeView.swift */,
 				E2881C6729E4A3E600AD69A4 /* WebView.swift */,
 				E2881C4329E09F9300AD69A4 /* ContentView.swift */,
 				E2881C4129E09F9300AD69A4 /* FlashcardsApp.swift */,
+				E2881C8329E7E93900AD69A4 /* Border.swift */,
 				E2881C4529E09F9700AD69A4 /* Assets.xcassets */,
 				E2881C7729E6AE2C00AD69A4 /* Launch Screen.storyboard */,
 				E2881C7629E605C500AD69A4 /* Info.plist */,
@@ -151,6 +153,7 @@
 				E2881C6529E4A3CE00AD69A4 /* RadioStationView.swift */,
 				E2881C5F29E4A38100AD69A4 /* SoundManager.swift */,
 				E2881C7D29E6B3C100AD69A4 /* RadioListView.swift */,
+				E2881C8129E7744100AD69A4 /* NowPlayingBar.swift */,
 			);
 			path = Radio;
 			sourceTree = "<group>";
@@ -273,9 +276,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2881C5A29E468B000AD69A4 /* TranslatedItem.swift in Sources */,
+				E2881C8429E7E93900AD69A4 /* Border.swift in Sources */,
 				E2881C5829E45BC000AD69A4 /* TranslationStore.swift in Sources */,
 				E2881C4429E09F9300AD69A4 /* ContentView.swift in Sources */,
-				E2881C6A29E4A42200AD69A4 /* HomeView.swift in Sources */,
 				E2881C5629E4334200AD69A4 /* FlashcardView.swift in Sources */,
 				E2881C5029E0A23200AD69A4 /* Card.swift in Sources */,
 				E2881C7E29E6B3C100AD69A4 /* RadioListView.swift in Sources */,
@@ -283,6 +286,7 @@
 				E2881C6429E4A3B600AD69A4 /* Publication.swift in Sources */,
 				E2881C5229E0A25200AD69A4 /* CardView.swift in Sources */,
 				E2881C4229E09F9300AD69A4 /* FlashcardsApp.swift in Sources */,
+				E2881C8229E7744100AD69A4 /* NowPlayingBar.swift in Sources */,
 				E2881C6629E4A3CE00AD69A4 /* RadioStationView.swift in Sources */,
 				E2881C5429E432F100AD69A4 /* TranslationListView.swift in Sources */,
 				E2881C5E29E4A36200AD69A4 /* RadioStations.swift in Sources */,

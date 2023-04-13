@@ -36,7 +36,7 @@ struct RadioStationView: View {
                         .font(.system(size: 50))
                         .padding(.trailing)
                         .onTapGesture {
-                            soundManager.playSound(sound: radioStation.url)
+                            soundManager.playSound(radioStation: radioStation)
                             !isPlaying ? soundManager.audioPlayer?.play() : soundManager.audioPlayer?.pause()
                             isPlaying.toggle()
                         }
@@ -47,7 +47,7 @@ struct RadioStationView: View {
         }
         .onAppear(perform: {
             if !isPlaying {
-                soundManager.playSound(sound: radioStation.url)
+                soundManager.playSound(radioStation: radioStation)
                 soundManager.audioPlayer?.play()
                 isPlaying.toggle()
             }
