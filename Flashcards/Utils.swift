@@ -62,7 +62,7 @@ func getRandomItems(from items: [TranslatedItem]) -> [TranslatedItem] {
     var newItems: [TranslatedItem] = []
     var chosenItems: Set<TranslatedItem> = []
 
-    while newItems.count <= 6 {
+    while newItems.count < 6 {
         let randomIndex = Int.random(in: 0..<items.count)
         let item = items[randomIndex]
         if !chosenItems.contains(item) {

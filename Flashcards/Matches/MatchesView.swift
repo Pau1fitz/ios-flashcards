@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct MatchesView: View {
     var matches: [TranslatedItem]
     
@@ -17,8 +19,9 @@ struct MatchesView: View {
     @State private var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     @State private var displayedMatches: [TranslatedItem] = []
     @State private var gameOver: Bool = false
+    @State private var englishWords: [String] = []
+    @State private var portugueseWords: [String] = []
     
-
     var body: some View {
         VStack {
             if gameOver == true {
@@ -34,8 +37,6 @@ struct MatchesView: View {
                         correctAnswers = []
                         timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
                         gameOver = false
-                        
-                     
                     }
                     .buttonStyle(.borderedProminent)
                     .tint(Color.black)
@@ -66,28 +67,28 @@ struct MatchesView: View {
                         
                         Grid(alignment: .leading, horizontalSpacing: 18, verticalSpacing: 18) {
                             GridRow {
-                                MatchesCardView(text: displayedMatches[0].portuguese, matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
-                                MatchesCardView(text: displayedMatches[0].english, matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
+                                MatchesCardView(text: portugueseWords[0], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
+                                MatchesCardView(text: englishWords[0], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
                             }
                             GridRow {
-                                MatchesCardView(text: displayedMatches[1].english, matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
-                                MatchesCardView(text: displayedMatches[1].portuguese, matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
+                                MatchesCardView(text: portugueseWords[1], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
+                                MatchesCardView(text: englishWords[1], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
                             }
                             GridRow {
-                                MatchesCardView(text: displayedMatches[2].portuguese, matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
-                                MatchesCardView(text: displayedMatches[2].english, matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
+                                MatchesCardView(text: portugueseWords[2], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
+                                MatchesCardView(text: englishWords[2], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
                             }
                             GridRow {
-                                MatchesCardView(text: displayedMatches[3].portuguese, matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
-                                MatchesCardView(text: displayedMatches[3].english, matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
+                                MatchesCardView(text: portugueseWords[3], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
+                                MatchesCardView(text: englishWords[3], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
                             }
                             GridRow {
-                                MatchesCardView(text: displayedMatches[4].english, matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
-                                MatchesCardView(text: displayedMatches[4].portuguese, matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
+                                MatchesCardView(text: portugueseWords[4], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
+                                MatchesCardView(text: englishWords[4], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
                             }
                             GridRow {
-                                MatchesCardView(text: displayedMatches[5].english, matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
-                                MatchesCardView(text: displayedMatches[5].portuguese, matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
+                                MatchesCardView(text: portugueseWords[5], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
+                                MatchesCardView(text: englishWords[5], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
                             }
                         }
                         HStack {
@@ -95,6 +96,8 @@ struct MatchesView: View {
                             Button("Restart") {
                                 timePassed = 0
                                 displayedMatches = getRandomItems(from: matches)
+                                englishWords = displayedMatches.map { $0.english }.shuffled()
+                                portugueseWords = displayedMatches.map { $0.portuguese }.shuffled()
                                 correctAnswers = []
                                 timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
                                 gameOver = false
@@ -117,6 +120,8 @@ struct MatchesView: View {
             if !isPlaying {
                 isPlaying = true
                 displayedMatches = getRandomItems(from: matches)
+                englishWords = displayedMatches.map { $0.english }.shuffled()
+                portugueseWords = displayedMatches.map { $0.portuguese }.shuffled()
             }
         }
     }
