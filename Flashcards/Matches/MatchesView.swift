@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct MatchesView: View {
     var matches: [TranslatedItem]
     
@@ -66,29 +64,11 @@ struct MatchesView: View {
                               .padding(.bottom, 8.0)
                         
                         Grid(alignment: .leading, horizontalSpacing: 18, verticalSpacing: 18) {
-                            GridRow {
-                                MatchesCardView(text: portugueseWords[0], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
-                                MatchesCardView(text: englishWords[0], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
-                            }
-                            GridRow {
-                                MatchesCardView(text: portugueseWords[1], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
-                                MatchesCardView(text: englishWords[1], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
-                            }
-                            GridRow {
-                                MatchesCardView(text: portugueseWords[2], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
-                                MatchesCardView(text: englishWords[2], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
-                            }
-                            GridRow {
-                                MatchesCardView(text: portugueseWords[3], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
-                                MatchesCardView(text: englishWords[3], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
-                            }
-                            GridRow {
-                                MatchesCardView(text: portugueseWords[4], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
-                                MatchesCardView(text: englishWords[4], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
-                            }
-                            GridRow {
-                                MatchesCardView(text: portugueseWords[5], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
-                                MatchesCardView(text: englishWords[5], matches: matches, guesses: $guesses, correctAnswers: $correctAnswers)
+                            ForEach(0..<6) { index in
+                                GridRow {
+                                    MatchesCardView(text: portugueseWords[index], matches: matches, shouldSpeak: true, guesses: $guesses, correctAnswers: $correctAnswers)
+                                    MatchesCardView(text: englishWords[index], matches: matches, shouldSpeak: false, guesses: $guesses, correctAnswers: $correctAnswers)
+                                }
                             }
                         }
                         HStack {
@@ -109,7 +89,6 @@ struct MatchesView: View {
                         .padding(.vertical, 8.0)
                     }
                     .padding()
-                 
                 } else {
                     Text("At least 6 translations required")
                 }
