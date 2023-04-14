@@ -18,13 +18,11 @@ struct TranslationListView: View {
     @Binding var translations: [TranslatedItem]
     @Binding var currentIndex: Int
     let saveAction: () -> Void
-    
-    @FocusState private var isTextFieldFocused: Bool
 
     func textToSpeech(speak: String) {
         let utterance = AVSpeechUtterance(string: speak)
         utterance.voice = AVSpeechSynthesisVoice(language: "pt-PT")
-        utterance.rate = 0.40
+        utterance.rate = 0.45
         self.synthesizer.speak(utterance)
     }
     
@@ -102,16 +100,10 @@ struct TranslationListView: View {
                     Spacer()
                 }
                 Divider()
-                
-                ZStack(alignment: .leading) {
-                    HStack (alignment: .top) {
-                        TextEditor(text: $translatedTextRequest)
-                            .focused($isTextFieldFocused)
-                            .font(.system(size: 16.0))
-                            .frame(height: 100.0)
-                            .frame(maxHeight: 100.0)
-                    }
-                    .padding(8.0)
+                    
+                HStack (alignment: .top) {
+                    TextField("Translate", text: $translatedTextRequest, axis: .vertical)
+                        .padding()
                 }
                 
                 HStack {
@@ -147,6 +139,7 @@ struct TranslationListView: View {
                            
                            Button {
                                textToSpeech(speak: item.portuguese)
+                               hideKeyboard()
                            } label: {
                                // enable the whole row to be clickable
                                Text("hidden button")
@@ -178,18 +171,6 @@ struct TranslationListView: View {
                 print("Fail to enable session")
             }
         }
-        .overlay(
-            isTextFieldFocused ?
-            Color.clear
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
-                .offset(y: 150)
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    hideKeyboard()
-                }
-            
-            : nil
-        )
     }
 }
 
