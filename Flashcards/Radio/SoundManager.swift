@@ -76,7 +76,7 @@ class SoundManager : ObservableObject {
             })
             
             do {
-                try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, policy: .default, options: .defaultToSpeaker)
+                try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, policy: .default, options: [.defaultToSpeaker, .allowAirPlay, .allowBluetoothA2DP])
                 try AVAudioSession.sharedInstance().setActive(true)
             } catch {
                 print(error.localizedDescription)
