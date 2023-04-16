@@ -92,7 +92,7 @@ struct MatchesView: View {
                         .padding(.vertical, 8.0)
                     }
                     .padding()
-                    .confettiCannon(counter: $completedAllMatches, num: 100, confettiSize: 20.0, radius: 400.0, repetitions: 3)
+                    .confettiCannon(counter: $completedAllMatches, num: 100, confettiSize: 20.0, radius: 500.0, repetitions: 4, repetitionInterval: 0.7)
                 } else {
                     Text("At least 6 translations required")
                 }
