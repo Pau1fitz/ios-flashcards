@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
 
 struct MatchesView: View {
     var matches: [TranslatedItem]
@@ -19,6 +20,7 @@ struct MatchesView: View {
     @State private var gameOver: Bool = false
     @State private var englishWords: [String] = []
     @State private var portugueseWords: [String] = []
+    @State private var completedAllMatches: Int = 0
     
     var body: some View {
         VStack {
@@ -57,6 +59,7 @@ struct MatchesView: View {
                                   }
                                   
                                   if correctAnswers.count == 12 {
+                                      completedAllMatches = 1
                                       timer.upstream.connect().cancel()
                                   }
                               }
@@ -89,6 +92,7 @@ struct MatchesView: View {
                         .padding(.vertical, 8.0)
                     }
                     .padding()
+                    .confettiCannon(counter: $completedAllMatches, num: 100, confettiSize: 20.0, radius: 400.0, repetitions: 3)
                 } else {
                     Text("At least 6 translations required")
                 }

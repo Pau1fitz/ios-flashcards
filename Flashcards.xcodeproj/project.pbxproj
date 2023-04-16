@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B84FC750EA3518A4D30E6FA5 /* libPods-Flashcards.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A58792C0C81FEC21E7D9F34 /* libPods-Flashcards.a */; };
+		E27DB87429EC9D3600D3D974 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E27DB87329EC9D3600D3D974 /* ConfettiSwiftUI */; };
 		E2881C4229E09F9300AD69A4 /* FlashcardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C4129E09F9300AD69A4 /* FlashcardsApp.swift */; };
 		E2881C4429E09F9300AD69A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C4329E09F9300AD69A4 /* ContentView.swift */; };
 		E2881C4629E09F9700AD69A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2881C4529E09F9700AD69A4 /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E27DB87429EC9D3600D3D974 /* ConfettiSwiftUI in Frameworks */,
 				B84FC750EA3518A4D30E6FA5 /* libPods-Flashcards.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,6 +214,9 @@
 			dependencies = (
 			);
 			name = Flashcards;
+			packageProductDependencies = (
+				E27DB87329EC9D3600D3D974 /* ConfettiSwiftUI */,
+			);
 			productName = Flashcards;
 			productReference = E2881C3E29E09F9300AD69A4 /* Flashcards.app */;
 			productType = "com.apple.product-type.application";
@@ -240,6 +245,9 @@
 				Base,
 			);
 			mainGroup = E2881C3529E09F9300AD69A4;
+			packageReferences = (
+				E27DB87229EC9D3600D3D974 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+			);
 			productRefGroup = E2881C3F29E09F9300AD69A4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -527,6 +535,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E27DB87229EC9D3600D3D974 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E27DB87329EC9D3600D3D974 /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E27DB87229EC9D3600D3D974 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E2881C3629E09F9300AD69A4 /* Project object */;
 }
