@@ -115,6 +115,7 @@ struct FlashcardView: View {
             }
         }.onAppear {
             displayedCards = isUsingUsersItems ? translations : generatedTranslatedItems.shuffled()
+            isShowingAnswer = false
         }
     }
 }
