@@ -9,9 +9,9 @@ import SwiftUI
 import AVFoundation
 
 struct CardView: View {
-    var card: TranslatedItem
     var selectedLanguage: String
     
+    @Binding var card: TranslatedItem
     @Binding var isShowingAnswer: Bool
     @State private var offset = CGSize.zero
     @State private var synthesizer = AVSpeechSynthesizer()

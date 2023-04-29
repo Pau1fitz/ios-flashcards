@@ -29,6 +29,7 @@
 		E2881C7C29E6B2FD00AD69A4 /* JornaisListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C7B29E6B2FD00AD69A4 /* JornaisListView.swift */; };
 		E2881C7E29E6B3C100AD69A4 /* RadioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C7D29E6B3C100AD69A4 /* RadioListView.swift */; };
 		E2881C8229E7744100AD69A4 /* NowPlayingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2881C8129E7744100AD69A4 /* NowPlayingBar.swift */; };
+		E2B7E6E229FD9FD1007459E6 /* GeneratedTranslationItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B7E6E129FD9FD1007459E6 /* GeneratedTranslationItems.swift */; };
 		E2C764C929E83D590062C485 /* MatchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C764C829E83D590062C485 /* MatchesView.swift */; };
 		E2C764CF29E86AC90062C485 /* MatchesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C764CE29E86AC90062C485 /* MatchesCardView.swift */; };
 		E2C764D129E86E010062C485 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C764D029E86E010062C485 /* Utils.swift */; };
@@ -62,6 +63,7 @@
 		E2881C7B29E6B2FD00AD69A4 /* JornaisListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JornaisListView.swift; sourceTree = "<group>"; };
 		E2881C7D29E6B3C100AD69A4 /* RadioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioListView.swift; sourceTree = "<group>"; };
 		E2881C8129E7744100AD69A4 /* NowPlayingBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingBar.swift; sourceTree = "<group>"; };
+		E2B7E6E129FD9FD1007459E6 /* GeneratedTranslationItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedTranslationItems.swift; sourceTree = "<group>"; };
 		E2C764C829E83D590062C485 /* MatchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesView.swift; sourceTree = "<group>"; };
 		E2C764CE29E86AC90062C485 /* MatchesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesCardView.swift; sourceTree = "<group>"; };
 		E2C764D029E86E010062C485 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				E2881C5329E432F100AD69A4 /* TranslationListView.swift */,
 				E2881C5729E45BC000AD69A4 /* TranslationStore.swift */,
 				E2881C5929E468B000AD69A4 /* TranslatedItem.swift */,
+				E2B7E6E129FD9FD1007459E6 /* GeneratedTranslationItems.swift */,
 			);
 			path = Translations;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				E2881C5629E4334200AD69A4 /* FlashcardView.swift in Sources */,
 				E2881C5029E0A23200AD69A4 /* Card.swift in Sources */,
 				E2881C7E29E6B3C100AD69A4 /* RadioListView.swift in Sources */,
+				E2B7E6E229FD9FD1007459E6 /* GeneratedTranslationItems.swift in Sources */,
 				E2881C6229E4A39900AD69A4 /* PublicationView.swift in Sources */,
 				E2881C6429E4A3B600AD69A4 /* Publication.swift in Sources */,
 				E2881C5229E0A25200AD69A4 /* CardView.swift in Sources */,

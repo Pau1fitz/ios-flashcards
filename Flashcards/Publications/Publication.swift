@@ -70,6 +70,67 @@ let fashionPublications: [Publication] = [
         name:"Activa",
         url: URL(string: "https://activa.sapo.pt/")!,
         image: createFavicon(url: "https://activa.sapo.pt/")
+    ),
+    Publication(
+        name:"Glamour",
+        url: URL(string: "https://glamour.globo.com/")!,
+        image: createFavicon(url: "https://www.glamour.com/")
+    )
+]
+
+let celebrityPublications: [Publication] = [
+    Publication(
+        name:"Caras",
+        url: URL(string: "https://caras.sapo.pt/")!,
+        image: createFavicon(url: "https://caras.sapo.pt/")
+    ),
+    Publication(
+        name:"Vidas",
+        url: URL(string: "https://www.vidas.pt/")!,
+        image: createFavicon(url: "https://www.vidas.pt/")
+    ),
+    Publication(
+        name:"Maria",
+        url: URL(string: "https://www.maria.pt/")!,
+        image: createFavicon(url: "https://www.maria.pt/")
+    ),
+    Publication(
+        name:"Nova Gente",
+        url: URL(string: "https://www.novagente.pt/")!,
+        image: createFavicon(url: "https://www.novagente.pt/")
+    ),
+    Publication(
+        name:"Contigo",
+        url: URL(string: "https://contigo.uol.com.br/")!,
+        image: createFavicon(url: "https://contigo.uol.com.br/")
+    )
+]
+
+let otherPublications = [
+    Publication(
+        name:"Rolling Stone",
+        url: URL(string: "https://rollingstone.uol.com.br/")!,
+        image: createFavicon(url: "https://rollingstone.uol.com.br/")
+    ),
+    Publication(
+        name:"Women's Health",
+        url: URL(string: "https://www.womenshealth.pt/")!,
+        image: createFavicon(url: "https://www.womenshealth.pt/")
+    ),
+    Publication(
+        name:"Men's Health",
+        url: URL(string: "https://www.menshealth.pt/")!,
+        image: createFavicon(url: "https://www.menshealth.pt/")
+    ),
+    Publication(
+        name:"Tecmundo",
+        url: URL(string: "https://www.tecmundo.com.br/")!,
+        image: createFavicon(url: "https://www.tecmundo.com.br/")
+    ),
+    Publication(
+        name:"Veja",
+        url: URL(string: "https://veja.abril.com.br/")!,
+        image: createFavicon(url: "https://veja.abril.com.br/")
     )
 ]
 
@@ -118,6 +179,23 @@ let generalPublications: [Publication] = [
         name:"Público",
         url: URL(string: "https://www.publico.pt/")!,
         image: createFavicon(url: "https://www.publico.pt/")
+    ),
+    Publication(
+        name:"Observador",
+        url: URL(string: "https://www.observador.pt/")!,
+        image: createFavicon(url: "https://www.observador.pt/")
+    ),
+    Publication(
+        name:"Jornal de Notícias",
+        url: URL(string: "https://www.jn.pt/")!,
+        image: createFavicon(url: "https://www.jn.pt/")
+    ),
+    Publication(
+        name:"Diario dos Açores",
+        url: URL(string: "http://diariodosacores.pt/")!,
+        image: createFavicon(url: "http://diariodosacores.pt/")
     )
 ]
 
+
+let allPublications = sportPublications + fashionPublications + generalPublications + celebrityPublications + otherPublications

@@ -74,6 +74,8 @@ func getRandomItems(from items: [TranslatedItem]) -> [TranslatedItem] {
 }
 
 func checkGuesses(guesses: [String], allItems: [TranslatedItem]) -> Bool {
+    print("allItems")
+    print(allItems)
     var found = false
     for item in allItems {
         if (guesses[0] == item.english && guesses[1] == item.portuguese || guesses[1] == item.english && guesses[0] == item.portuguese) {

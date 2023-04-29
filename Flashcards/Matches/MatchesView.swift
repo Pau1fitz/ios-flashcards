@@ -21,6 +21,7 @@ struct MatchesView: View {
     @State private var englishWords: [String] = []
     @State private var portugueseWords: [String] = []
     @State private var completedAllMatches: Int = 0
+    @State private var isUsingUsersItems = true
     
     var body: some View {
         VStack {
@@ -69,8 +70,8 @@ struct MatchesView: View {
                         Grid(alignment: .leading, horizontalSpacing: 18, verticalSpacing: 18) {
                             ForEach(0..<6) { index in
                                 GridRow {
-                                    MatchesCardView(text: portugueseWords[index], matches: matches, shouldSpeak: true, guesses: $guesses, correctAnswers: $correctAnswers)
-                                    MatchesCardView(text: englishWords[index], matches: matches, shouldSpeak: false, guesses: $guesses, correctAnswers: $correctAnswers)
+                                    MatchesCardView(text: portugueseWords[index], shouldSpeak: true, matches: $displayedMatches, guesses: $guesses, correctAnswers: $correctAnswers)
+                                    MatchesCardView(text: englishWords[index], shouldSpeak: false, matches: $displayedMatches, guesses: $guesses, correctAnswers: $correctAnswers)
                                 }
                             }
                         }
@@ -78,23 +79,61 @@ struct MatchesView: View {
                             Spacer()
                             Button("Restart") {
                                 timePassed = 0
-                                displayedMatches = getRandomItems(from: matches)
+                                displayedMatches = getRandomItems(from: isUsingUsersItems ? matches : generatedTranslatedItems)
                                 englishWords = displayedMatches.map { $0.english }.shuffled()
                                 portugueseWords = displayedMatches.map { $0.portuguese }.shuffled()
                                 correctAnswers = []
                                 timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
                                 gameOver = false
+                                completedAllMatches = 0
                             }
                             .buttonStyle(.borderedProminent)
                             .tint(Color.black)
+                            
+                            Spacer()
+                            
+                            Button(isUsingUsersItems ? "Practice Other Words" : "My Words") {
+                                isUsingUsersItems.toggle()
+                                timePassed = 0
+                                displayedMatches = getRandomItems(from: isUsingUsersItems ? matches : generatedTranslatedItems)
+                                englishWords = displayedMatches.map { $0.english }.shuffled()
+                                portugueseWords = displayedMatches.map { $0.portuguese }.shuffled()
+                                correctAnswers = []
+                                timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+                                gameOver = false
+                                completedAllMatches = 0
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .tint(Color.black)
+                            
+                            Spacer()
                             
                         }
                         .padding(.vertical, 8.0)
                     }
                     .padding()
-                    .confettiCannon(counter: $completedAllMatches, num: 100, confettiSize: 20.0, radius: 500.0, repetitions: 4, repetitionInterval: 0.7)
+                    .confettiCannon(counter: $completedAllMatches, num: 100, confettiSize: 20.0, radius: 500.0, repetitions: 3, repetitionInterval: 0.7)
                 } else {
-                    Text("At least 6 translations required")
+                    VStack {
+                        Text("At least 6 translations required")
+                        
+                        Button("Practice Other Words") {
+                            isUsingUsersItems.toggle()
+                            timePassed = 0
+                            displayedMatches = getRandomItems(from: isUsingUsersItems ? matches : generatedTranslatedItems)
+                            englishWords = displayedMatches.map { $0.english }.shuffled()
+                            portugueseWords = displayedMatches.map { $0.portuguese }.shuffled()
+                            correctAnswers = []
+                            timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+                            gameOver = false
+                            completedAllMatches = 0
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(Color.black)
+                    }
+                    
+                    
+                  
                 }
                 
             }

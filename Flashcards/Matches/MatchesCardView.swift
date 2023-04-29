@@ -11,8 +11,8 @@ import AVFoundation
 
 struct MatchesCardView: View {
     var text: String
-    var matches: [TranslatedItem]
     var shouldSpeak: Bool
+    @Binding var matches: [TranslatedItem]
     @Binding var guesses: [String]
     @Binding var correctAnswers: [String]
     
